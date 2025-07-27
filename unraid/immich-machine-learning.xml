@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>immich-machine-learning</Name>
+    <Repository>immich/immich-machine-learning:release</Repository>
+    <Registry>https://github.com/immich-app/immich/pkgs/container/immich-machine-learning</Registry>
+
+    <!-- BRANCHES -->
+    <Branch>
+        <Tag>release-openvino</Tag>
+        <TagDescription>Latest version of Immich ML with OpenVINO support</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>release-cuda</Tag>
+        <TagDescription>Latest version of Immich ML with CUDA support</TagDescription>
+    </Branch>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>bridge</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/immich-app/immich/issues</Support>
+    <Project>https://github.com/immich-app/immich</Project>
+    <ReadMe>https://immich.app/docs/overview/quick-start</ReadMe>
+    <Overview>High performance self-hosted photo and video management solution.</Overview>
+    <Category>Tools:</Category>
+    <TemplateURL>
+        https://raw.githubusercontent.com/whallin/stacks/develop/unraid/immich-machine-learning.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/immich.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Model Cache" Target="/cache"
+        Default="/mnt/user/appdata/immich/machine-learning/cache" Mode="rw"
+        Description="Cache directory for model files" Type="Path" Display="always" Required="true"
+        Mask="false">
+        /mnt/user/appdata/immich/machine-learning/cache</Config>
+    <Config Name="OpenVINO USB Device" Target="/dev/bus/usb" Default="" Mode="rw"
+        Description="USB device for OpenVINO" Type="Path" Display="advanced" Required="false"
+        Mask="false">
+        /dev/bus/usb</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Machine Learning Port" Target="3003" Default="3003" Mode="tcp"
+        Description="TCP port for Immich Machine Learning"
+        Type="Port"
+        Display="always" Required="true" Mask="false">3003</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="MACHINE_LEARNING_WORKER_TIMEOUT" Target="MACHINE_LEARNING_WORKER_TIMEOUT"
+        Default="120" Mode=""
+        Description="Maximum time (s) of unresponsiveness before a worker is killed. 300 if using OpenVINO"
+        Type="Variable" Display="advanced" Required="false" Mask="false">120</Config>
+    <Config Name="MACHINE_LEARNING_MAX_BATCH_SIZE__FACIAL_RECOGNITION"
+        Target="MACHINE_LEARNING_MAX_BATCH_SIZE__FACIAL_RECOGNITION"
+        Default="" Mode=""
+        Description="Maximum number of faces that will be processed at once by the facial recognition model. 1 if using OpenVINO"
+        Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+
+    <!-- DEVICE MAPPINGS -->
+    <Config Name="OpenVINO Device" Target="/dev/dri" Default="" Mode=""
+        Description="OpenVINO device for hardware acceleration"
+        Type="Device"
+        Display="advanced" Required="false" Mask="false">/dev/dri</Config>
+</Container>

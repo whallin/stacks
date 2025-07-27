@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>gotenberg</Name>
+    <Repository>gotenberg/gotenberg:latest</Repository>
+    <Registry>https://hub.docker.com/r/gotenberg/gotenberg</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>bridge</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/gotenberg/gotenberg/issues</Support>
+    <Project>https://github.com/gotenberg/gotenberg</Project>
+    <ReadMe>https://gotenberg.dev/docs/getting-started/introduction</ReadMe>
+    <Overview>A containerized API for seamless PDF conversion.</Overview>
+    <Category>Tools:</Category>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/gotenberg.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/golang.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+    <PostArgs>gotenberg --chromium-disable-javascript=true --chromium-allow-list=file:///tmp/.*</PostArgs>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Gotenberg Port" Target="3000" Default="3000" Mode="tcp"
+        Description="TCP port for Gotenberg"
+        Type="Port"
+        Display="always" Required="true" Mask="false">3000</Config>
+</Container>

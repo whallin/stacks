@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>cloudflared</Name>
+    <Repository>cloudflare/cloudflared:latest</Repository>
+    <Registry>https://hub.docker.com/r/cloudflare/cloudflared</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>host</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/cloudflare/cloudflared/issues</Support>
+    <Project>https://github.com/cloudflare/cloudflared</Project>
+    <ReadMe>https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/</ReadMe>
+    <Overview>Client for Cloudflare Tunnel, a daemon that exposes private services through the
+        Cloudflare edge.</Overview>
+    <Category>Network:Web Network:Proxy</Category>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/cloudflared.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/cloudflare.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+    <PostArgs>tunnel --no-autoupdate run --token TUNNEL_TOKEN</PostArgs>
+
+    <!-- ADDITIONAL REQUIREMENTS -->
+    <Requires>cloudflared requires:&#xD;
+        - A cloudflare.com account&#xD;
+        - Updating "Post Arguments" with your Tunnel token</Requires>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+</Container>

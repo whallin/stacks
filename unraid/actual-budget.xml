@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>actual-budget</Name>
+    <Repository>ghcr.io/actualbudget/actual:latest</Repository>
+    <Registry>https://github.com/actualbudget/actual/pkgs/container/actual</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>bridge</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/actualbudget/actual/issues</Support>
+    <Project>https://github.com/actualbudget/actual</Project>
+    <ReadMe>https://actualbudget.org/docs/install/</ReadMe>
+    <Overview>A local-first personal finance app</Overview>
+    <Category>Productivity: Tools:</Category>
+    <WebUI>https://[IP]:[PORT:5006]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/actual-budget.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/actual-budget.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Persistent Data" Target="/data" Default="/mnt/user/appdata/actual-budget/data"
+        Mode="rw"
+        Description="Persistent storage for Actual Budget" Type="Path" Display="always"
+        Required="true" Mask="false">
+        /mnt/user/appdata/actual-budget/data</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web Port" Target="5006" Default="5006" Mode="tcp"
+        Description="Web UI port for Actual Budget"
+        Type="Port"
+        Display="always" Required="true" Mask="false">5006</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="ACTUAL_UPLOAD_FILE_SYNC_SIZE_LIMIT_MB"
+        Target="ACTUAL_UPLOAD_FILE_SYNC_SIZE_LIMIT_MB" Default="20" Mode=""
+        Description="Maximum allowed size for sync files (in MB)"
+        Type="Variable" Display="advanced" Required="false" Mask="false">20</Config>
+    <Config Name="ACTUAL_UPLOAD_SYNC_ENCRYPTED_FILE_SYNC_SIZE_LIMIT_MB"
+        Target="ACTUAL_UPLOAD_SYNC_ENCRYPTED_FILE_SYNC_SIZE_LIMIT_MB" Default="50" Mode=""
+        Description="Maximum allowed size for encrypted sync files (in MB)"
+        Type="Variable" Display="advanced" Required="false" Mask="false">50</Config>
+    <Config Name="ACTUAL_UPLOAD_FILE_SIZE_LIMIT_MB"
+        Target="ACTUAL_UPLOAD_FILE_SIZE_LIMIT_MB" Default="20" Mode=""
+        Description="Maximum allowed size for file uploads (in MB)"
+        Type="Variable" Display="advanced" Required="false" Mask="false">20</Config>
+</Container>

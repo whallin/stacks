@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>teldrive</Name>
+    <Repository>ghcr.io/tgdrive/teldrive:latest</Repository>
+    <Registry>https://github.com/tgdrive/teldrive/pkgs/container/teldrive</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>bridge</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/tgdrive/teldrive/issues</Support>
+    <Project>https://github.com/tgdrive/teldrive</Project>
+    <ReadMe>https://teldrive-docs.pages.dev/</ReadMe>
+    <Overview>Teldrive is a powerful utility that enables you to organise your telegram files and
+        much more.</Overview>
+    <Category>Backup:</Category>
+    <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/teldrive.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/telegram.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+    <PostArgs>POST_ARGS</PostArgs>
+
+    <!-- ADDITIONAL REQUIREMENTS -->
+    <Requires>Teldrive requires:&#xD;
+        - 'touch' the "config.toml" &amp;amp; "storage.db" files before starting&#xD;
+        - A telegram.org account&#xD;
+        - A PostgreSQL database with PGroonga</Requires>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Config" Target="/config.toml" Default="/mnt/user/appdata/teldrive/config.toml"
+        Mode="rw"
+        Description="Configuration file for Teldrive" Type="Path" Display="always" Required="true"
+        Mask="false">
+        /mnt/user/appdata/teldrive/config.toml</Config>
+    <Config Name="Storage database" Target="/storage.db"
+        Default="/mnt/user/appdata/teldrive/storage.db"
+        Mode="rw"
+        Description="Storage database for Teldrive" Type="Path" Display="always" Required="true"
+        Mask="false">
+        /mnt/user/appdata/teldrive/storage.db</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web UI Port" Target="8080" Default="8080" Mode="tcp"
+        Description="Web UI port for Teldrive" Type="Port"
+        Display="always" Required="true" Mask="false">8080</Config>
+</Container>
