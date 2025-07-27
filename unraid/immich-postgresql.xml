@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>immich-postgresql</Name>
+    <Repository>ghcr.io/immich-app/immich-postgres:17-vectorchord0.4.3</Repository>
+    <Registry>https://github.com/immich-app/base-images/pkgs/container/postgres</Registry>
+
+    <!-- BRANCHES -->
+    <Branch>
+        <Tag>17-vectorchord0.4.3</Tag>
+        <TagDescription>Latest version of VectorChord for PostgreSQL 17</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>16-vectorchord0.4.3</Tag>
+        <TagDescription>Latest version of VectorChord for PostgreSQL 16</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>15-vectorchord0.4.3</Tag>
+        <TagDescription>Latest version of VectorChord for PostgreSQL 15</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>14-vectorchord0.4.3</Tag>
+        <TagDescription>Latest version of VectorChord for PostgreSQL 14</TagDescription>
+    </Branch>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>bridge</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/immich-app/base-images/issues</Support>
+    <Project>https://github.com/immich-app/base-images</Project>
+    <ReadMe>https://immich.app/docs/overview/quick-start</ReadMe>
+    <Overview>PostgreSQL fork bundled with VectorChord for the exclusive use with Immich, maintained
+        by the Immich team.</Overview>
+    <Category>Tools: Network:Management Network:Other</Category>
+    <TemplateURL>
+        https://raw.githubusercontent.com/whallin/stacks/develop/unraid/immich-postgresql.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/immich.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="VectorChord Data" Target="/var/lib/postgresql/data"
+        Default="/mnt/user/appdata/immich/postgresql/data" Mode="rw"
+        Description="VectorChord data directory" Type="Path" Display="always" Required="true"
+        Mask="false">
+        /mnt/user/appdata/immich/postgresql/data</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="VectorChord Port" Target="5432" Default="5432" Mode="tcp"
+        Description="TCP port for VectorChord"
+        Type="Port"
+        Display="always" Required="true" Mask="false">5432</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="DB_STORAGE_TYPE" Target="DB_STORAGE_TYPE" Default="SSD|HDD" Mode=""
+        Description="Optimize concurrent IO or sequential IO"
+        Type="Variable" Display="always" Required="false" Mask="false"></Config>
+    <Config Name="POSTGRES_USER" Target="POSTGRES_USER" Default="postgres" Mode=""
+        Description="VectorChord user"
+        Type="Variable" Display="always" Required="false" Mask="false">postgres</Config>
+    <Config Name="POSTGRES_PASSWORD" Target="POSTGRES_PASSWORD" Default="password" Mode=""
+        Description="VectorChord password"
+        Type="Variable" Display="always" Required="true" Mask="true">password</Config>
+    <Config Name="POSTGRES_DB" Target="POSTGRES_DB" Default="mydb" Mode=""
+        Description="VectorChord database name"
+        Type="Variable" Display="always" Required="false" Mask="false">mydb</Config>
+    <Config Name="POSTGRES_INITDB_ARGS" Target="POSTGRES_INITDB_ARGS" Default="--data-checksums"
+        Mode=""
+        Description="Additional arguments for initdb"
+        Type="Variable" Display="always" Required="false" Mask="false">--data-checksums</Config>
+</Container>
