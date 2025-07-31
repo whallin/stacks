@@ -23,12 +23,14 @@
 
     <!-- CONTAINER FLAGS -->
     <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
-    <PostArgs>POST_ARGS</PostArgs>
-
-    <!-- ADDITIONAL REQUIREMENTS -->
-    <Requires>ADDITIONAL_REQUIREMENTS</Requires>
 
     <!-- MOUNTED PATHS -->
+    <Config Name="Backblaze Personal Configuration" Target="/config"
+        Default="/mnt/user/appdata/backblaze-personal-wine/config"
+        Mode="rw"
+        Description="Configuration directory for Backblaze Personal" Type="Path" Display="always"
+        Required="false"
+        Mask="false">/mnt/user/appdata/backblaze-personal-wine/config</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

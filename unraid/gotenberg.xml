@@ -20,7 +20,7 @@
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/golang.png</Icon>
 
     <!-- CONTAINER FLAGS -->
-    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+    <ExtraParams>--no-healthcheck --restart=unless-stopped</ExtraParams>
     <PostArgs>gotenberg --chromium-disable-javascript=true --chromium-allow-list=file:///tmp/.*</PostArgs>
 
     <!-- MOUNTED PATHS -->

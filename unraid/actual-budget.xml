@@ -16,12 +16,12 @@
     <ReadMe>https://actualbudget.org/docs/install/</ReadMe>
     <Overview>A local-first personal finance app</Overview>
     <Category>Productivity: Tools:</Category>
-    <WebUI>https://[IP]:[PORT:5006]/</WebUI>
+    <WebUI>http://[IP]:[PORT:5006]/</WebUI>
     <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/actual-budget.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/actual-budget.png</Icon>
 
     <!-- CONTAINER FLAGS -->
-    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+    <ExtraParams>--no-healthcheck --restart=unless-stopped</ExtraParams>
 
     <!-- MOUNTED PATHS -->
     <Config Name="Actual Budget Data" Target="/data" Default="/mnt/user/appdata/actual-budget/data"

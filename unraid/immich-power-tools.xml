@@ -15,8 +15,8 @@
     <Project>https://github.com/varun-raj/immich-power-tools</Project>
     <ReadMe>https://github.com/varun-raj/immich-power-tools</ReadMe>
     <Overview>Power tools for organizing your immich library</Overview>
-    <Category />
-    <WebUI>http://[IP]:[PORT:80]/</WebUI>
+    <Category>Tools:</Category>
+    <WebUI>http://[IP]:[PORT:3000]/</WebUI>
     <TemplateURL>
         https://raw.githubusercontent.com/whallin/stacks/develop/unraid/immich-power-tools.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/immich-power-tools.png</Icon>
@@ -36,19 +36,20 @@
         Display="always" Required="true" Mask="false">3000</Config>
 
     <!-- ENVIRONMENT VARIABLES -->
-    <Config Name="IMMICH_URL" Target="IMMICH_URL" Default="DEFAULT" Mode=""
+    <Config Name="IMMICH_URL" Target="IMMICH_URL" Default="http://local-ip-of-immich:port" Mode=""
         Description="URL of the Immich server"
-        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
-    <Config Name="IMMICH_API_KEY" Target="IMMICH_API_KEY" Default="DEFAULT" Mode=""
+        Type="Variable" Display="always" Required="true" Mask="false">http://local-ip-of-immich:port</Config>
+    <Config Name="IMMICH_API_KEY" Target="IMMICH_API_KEY" Default="" Mode=""
         Description="API key for the Immich server"
-        Type="Variable" Display="always" Required="true" Mask="true">VALUE</Config>
-    <Config Name="EXTERNAL_IMMICH_URL" Target="EXTERNAL_IMMICH_URL" Default="DEFAULT" Mode=""
+        Type="Variable" Display="always" Required="true" Mask="true"></Config>
+    <Config Name="EXTERNAL_IMMICH_URL" Target="EXTERNAL_IMMICH_URL"
+        Default="https://external-address" Mode=""
         Description="External URL of the Immich server"
-        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
-    <Config Name="GOOGLE_MAPS_API_KEY" Target="GOOGLE_MAPS_API_KEY" Default="DEFAULT" Mode=""
+        Type="Variable" Display="always" Required="true" Mask="false">https://external-address</Config>
+    <Config Name="GOOGLE_MAPS_API_KEY" Target="GOOGLE_MAPS_API_KEY" Default="" Mode=""
         Description="Google Maps API key"
-        Type="Variable" Display="always" Required="false" Mask="true">VALUE</Config>
-    <Config Name="GEMINI_API_KEY" Target="GEMINI_API_KEY" Default="DEFAULT" Mode=""
+        Type="Variable" Display="always" Required="false" Mask="true"></Config>
+    <Config Name="GEMINI_API_KEY" Target="GEMINI_API_KEY" Default="" Mode=""
         Description="Gemini API key"
-        Type="Variable" Display="always" Required="false" Mask="true">VALUE</Config>
+        Type="Variable" Display="always" Required="false" Mask="true"></Config>
 </Container>

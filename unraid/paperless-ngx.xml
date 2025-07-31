@@ -24,7 +24,7 @@
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/paperless-ngx.png</Icon>
 
     <!-- CONTAINER FLAGS -->
-    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+    <ExtraParams>--no-healthcheck --restart=unless-stopped</ExtraParams>
 
     <!-- ADDITIONAL REQUIREMENTS -->
     <Requires>Paperless-ngx requires:&#xD;

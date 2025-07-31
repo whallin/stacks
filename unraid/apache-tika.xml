@@ -26,7 +26,7 @@
     </Overview>
     <Category>Tools:</Category>
     <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/apache-tika.xml</TemplateURL>
-    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/apache.png</Icon>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/apache-tika.png</Icon>
 
     <!-- CONTAINER FLAGS -->
     <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>

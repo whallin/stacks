@@ -25,7 +25,6 @@
 
     <!-- CONTAINER FLAGS -->
     <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
-    <PostArgs>POST_ARGS</PostArgs>
 
     <!-- ADDITIONAL REQUIREMENTS -->
     <Requires>Teldrive requires:&#xD;

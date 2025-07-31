@@ -2,7 +2,7 @@
 <Container version="2">
     <!-- IMAGE -->
     <Name>immich-postgresql</Name>
-    <Repository>ghcr.io/immich-app/immich-postgres:17-vectorchord0.4.3</Repository>
+    <Repository>ghcr.io/immich-app/postgres:17-vectorchord0.4.3</Repository>
     <Registry>https://github.com/immich-app/base-images/pkgs/container/postgres</Registry>
 
     <!-- BRANCHES -->
