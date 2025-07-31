@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>immich-power-tools</Name>
+    <Repository>ghcr.io/varun-raj/immich-power-tools:latest</Repository>
+    <Registry>https://github.com/varun-raj/immich-power-tools/pkgs/container/immich-power-tools</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>bridge</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/varun-raj/immich-power-tools/issues</Support>
+    <Project>https://github.com/varun-raj/immich-power-tools</Project>
+    <ReadMe>https://github.com/varun-raj/immich-power-tools</ReadMe>
+    <Overview>Power tools for organizing your immich library</Overview>
+    <Category />
+    <WebUI>http://[IP]:[PORT:80]/</WebUI>
+    <TemplateURL>
+        https://raw.githubusercontent.com/whallin/stacks/develop/unraid/immich-power-tools.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/immich-power-tools.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web UI Port" Target="3000" Default="3000" Mode="tcp"
+        Description="Web UI port for Immich Power Tools"
+        Type="Port"
+        Display="always" Required="true" Mask="false">3000</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="IMMICH_URL" Target="IMMICH_URL" Default="DEFAULT" Mode=""
+        Description="URL of the Immich server"
+        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
+    <Config Name="IMMICH_API_KEY" Target="IMMICH_API_KEY" Default="DEFAULT" Mode=""
+        Description="API key for the Immich server"
+        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
+    <Config Name="EXTERNAL_IMMICH_URL" Target="EXTERNAL_IMMICH_URL" Default="DEFAULT" Mode=""
+        Description="External URL of the Immich server"
+        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
+    <Config Name="GOOGLE_MAPS_API_KEY" Target="GOOGLE_MAPS_API_KEY" Default="DEFAULT" Mode=""
+        Description="Google Maps API key"
+        Type="Variable" Display="always" Required="false" Mask="false">VALUE</Config>
+    <Config Name="GEMINI_API_KEY" Target="GEMINI_API_KEY" Default="DEFAULT" Mode=""
+        Description="Gemini API key"
+        Type="Variable" Display="always" Required="false" Mask="false">VALUE</Config>
+</Container>
