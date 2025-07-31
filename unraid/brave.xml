@@ -44,7 +44,7 @@
         Type="Variable" Display="always" Required="true" Mask="false">abc</Config>
     <Config Name="PASSWORD" Target="PASSWORD" Default="" Mode=""
         Description="Password for HTTP Basic Auth"
-        Type="Variable" Display="always" Required="false" Mask="true">VALUE</Config>
+        Type="Variable" Display="always" Required="false" Mask="true"></Config>
 
     <!-- DEVICE MAPPINGS -->
     <Config Name="GPU Device" Target="/dev/dri" Default="" Mode=""
