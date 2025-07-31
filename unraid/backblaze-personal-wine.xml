@@ -24,6 +24,10 @@
     <!-- CONTAINER FLAGS -->
     <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
 
+    <!-- ADDITIONAL REQUIREMENTS -->
+    <Requires>Backblaze requires:&#xD;
+        - A backblaze.com Computer Backup subscription</Requires>
+
     <!-- MOUNTED PATHS -->
     <Config Name="Backblaze Personal Configuration" Target="/config"
         Default="/mnt/user/appdata/backblaze-personal-wine/config"
