@@ -41,14 +41,14 @@
         Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
     <Config Name="IMMICH_API_KEY" Target="IMMICH_API_KEY" Default="DEFAULT" Mode=""
         Description="API key for the Immich server"
-        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
+        Type="Variable" Display="always" Required="true" Mask="true">VALUE</Config>
     <Config Name="EXTERNAL_IMMICH_URL" Target="EXTERNAL_IMMICH_URL" Default="DEFAULT" Mode=""
         Description="External URL of the Immich server"
         Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
     <Config Name="GOOGLE_MAPS_API_KEY" Target="GOOGLE_MAPS_API_KEY" Default="DEFAULT" Mode=""
         Description="Google Maps API key"
-        Type="Variable" Display="always" Required="false" Mask="false">VALUE</Config>
+        Type="Variable" Display="always" Required="false" Mask="true">VALUE</Config>
     <Config Name="GEMINI_API_KEY" Target="GEMINI_API_KEY" Default="DEFAULT" Mode=""
         Description="Gemini API key"
-        Type="Variable" Display="always" Required="false" Mask="false">VALUE</Config>
+        Type="Variable" Display="always" Required="false" Mask="true">VALUE</Config>
 </Container>
