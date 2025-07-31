@@ -29,7 +29,7 @@
         Required="true"
         Mask="false">/mnt/user/appdata/teldrive-rclone/config</Config>
     <Config Name="Teldrive Rclone Mount" Target="/mount"
-        Default="/mnt/user/appdata/teldrive-rclone/mount" Mode="rw"
+        Default="/mnt/user/appdata/teldrive-rclone/mount" Mode="rw,shared"
         Description="Mount directory for Teldrive Rclone" Type="Path" Display="always"
         Required="true"
         Mask="false">/mnt/user/appdata/teldrive-rclone/mount</Config>
