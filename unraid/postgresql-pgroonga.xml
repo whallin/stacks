@@ -41,9 +41,10 @@
     <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="PGroonga Data" Target="/var/lib/postgresql/data"
+    <Config Name="PostgreSQL PGroonga Data" Target="/var/lib/postgresql/data"
         Default="/mnt/user/appdata/postgresql-pgroonga/data" Mode="rw"
-        Description="PGroonga data directory" Type="Path" Display="always" Required="true"
+        Description="Data directory for PostgreSQL PGroonga" Type="Path" Display="always"
+        Required="true"
         Mask="false">
         /mnt/user/appdata/postgresql-pgroonga/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
@@ -51,8 +52,8 @@
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="PGroonga Port" Target="5432" Default="5432" Mode="tcp"
-        Description="TCP port for PGroonga"
+    <Config Name="Database Port" Target="5432" Default="5432" Mode="tcp"
+        Description="Database port for PostgreSQL PGroonga"
         Type="Port"
         Display="always" Required="true" Mask="false">5432</Config>
 

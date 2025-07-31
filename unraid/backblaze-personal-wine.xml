@@ -34,8 +34,8 @@
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="Web VNC Port" Target="5800" Default="5800" Mode="tcp"
-        Description="Port for accessing Backblaze via web VNC" Type="Port"
+    <Config Name="Web UI Port" Target="5800" Default="5800" Mode="tcp"
+        Description="Web UI port for Backblaze Personal (VNC)" Type="Port"
         Display="always" Required="true" Mask="false">5800</Config>
 
     <!-- ENVIRONMENT VARIABLES -->

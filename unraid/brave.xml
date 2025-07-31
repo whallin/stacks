@@ -24,8 +24,9 @@
     <ExtraParams>--no-healthcheck --restart=unless-stopped</ExtraParams>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="Config Path" Target="/config" Default="/mnt/user/appdata/brave/config" Mode="rw"
-        Description="Configuration files for Brave" Type="Path" Display="always" Required="true"
+    <Config Name="Brave Configuration" Target="/config" Default="/mnt/user/appdata/brave/config"
+        Mode="rw"
+        Description="Configuration directory for Brave" Type="Path" Display="always" Required="true"
         Mask="false">
         /mnt/user/appdata/brave/config</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
@@ -33,7 +34,7 @@
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="HTTPS Web Port" Target="3001" Default="3001" Mode="tcp"
+    <Config Name="Web UI Port" Target="3001" Default="3001" Mode="tcp"
         Description="Web UI port for Brave"
         Type="Port"
         Display="always" Required="true" Mask="false">3001</Config>

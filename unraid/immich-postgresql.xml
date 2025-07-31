@@ -43,9 +43,10 @@
     <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="VectorChord Data" Target="/var/lib/postgresql/data"
+    <Config Name="Immich PostgreSQL Data" Target="/var/lib/postgresql/data"
         Default="/mnt/user/appdata/immich/postgresql/data" Mode="rw"
-        Description="VectorChord data directory" Type="Path" Display="always" Required="true"
+        Description="Data directory for Immich PostgreSQL" Type="Path" Display="always"
+        Required="true"
         Mask="false">
         /mnt/user/appdata/immich/postgresql/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
@@ -53,8 +54,8 @@
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="VectorChord Port" Target="5432" Default="5432" Mode="tcp"
-        Description="TCP port for VectorChord"
+    <Config Name="Database Port" Target="5432" Default="5432" Mode="tcp"
+        Description="Database port for Immich PostgreSQL"
         Type="Port"
         Display="always" Required="true" Mask="false">5432</Config>
 

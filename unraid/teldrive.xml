@@ -32,12 +32,13 @@
         - A PostgreSQL database with PGroonga</Requires>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="Config" Target="/config.toml" Default="/mnt/user/appdata/teldrive/config.toml"
+    <Config Name="Teldrive Configuration" Target="/config.toml"
+        Default="/mnt/user/appdata/teldrive/config.toml"
         Mode="rw"
         Description="Configuration file for Teldrive" Type="Path" Display="always" Required="true"
         Mask="false">
         /mnt/user/appdata/teldrive/config.toml</Config>
-    <Config Name="Storage database" Target="/storage.db"
+    <Config Name="Teldrive Storage Database" Target="/storage.db"
         Default="/mnt/user/appdata/teldrive/storage.db"
         Mode="rw"
         Description="Storage database for Teldrive" Type="Path" Display="always" Required="true"

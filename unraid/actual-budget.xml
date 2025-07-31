@@ -24,9 +24,9 @@
     <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="Persistent Data" Target="/data" Default="/mnt/user/appdata/actual-budget/data"
+    <Config Name="Actual Budget Data" Target="/data" Default="/mnt/user/appdata/actual-budget/data"
         Mode="rw"
-        Description="Persistent storage for Actual Budget" Type="Path" Display="always"
+        Description="Data directory for Actual Budget" Type="Path" Display="always"
         Required="true" Mask="false">
         /mnt/user/appdata/actual-budget/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
@@ -34,7 +34,7 @@
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="Web Port" Target="5006" Default="5006" Mode="tcp"
+    <Config Name="Web UI Port" Target="5006" Default="5006" Mode="tcp"
         Description="Web UI port for Actual Budget"
         Type="Port"
         Display="always" Required="true" Mask="false">5006</Config>

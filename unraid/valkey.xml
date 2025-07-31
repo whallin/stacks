@@ -35,8 +35,8 @@
     <PostArgs>valkey-server --loglevel notice --save 300 1 --appendonly yes</PostArgs>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="Persistent Data" Target="/data" Default="/mnt/user/appdata/valkey/data" Mode="rw"
-        Description="Persistent storage for Valkey" Type="Path" Display="always" Required="true"
+    <Config Name="Valkey Data" Target="/data" Default="/mnt/user/appdata/valkey/data" Mode="rw"
+        Description="Data directory for Valkey" Type="Path" Display="always" Required="true"
         Mask="false">
         /mnt/user/appdata/valkey/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
@@ -44,8 +44,8 @@
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="Valkey Port" Target="6379" Default="6379" Mode="tcp"
-        Description="TCP port for Valkey"
+    <Config Name="Database Port" Target="6379" Default="6379" Mode="tcp"
+        Description="Database port for Valkey"
         Type="Port"
         Display="always" Required="true" Mask="false">6379</Config>
 </Container>

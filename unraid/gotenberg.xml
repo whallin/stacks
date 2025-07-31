@@ -29,8 +29,8 @@
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="Gotenberg Port" Target="3000" Default="3000" Mode="tcp"
-        Description="TCP port for Gotenberg"
+    <Config Name="API Port" Target="3000" Default="3000" Mode="tcp"
+        Description="API port for Gotenberg"
         Type="Port"
         Display="always" Required="true" Mask="false">3000</Config>
 </Container>

@@ -31,24 +31,26 @@
         - (optional) Apache Tika and Gotenberg for parsing Office documents and emails</Requires>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="Paperless Data" Target="/usr/src/paperless/data"
+    <Config Name="Paperless-ngx Data" Target="/usr/src/paperless/data"
         Default="/mnt/user/appdata/paperless/data" Mode="rw"
-        Description="Paperless data directory" Type="Path" Display="always" Required="true"
+        Description="Data directory for Paperless-ngx" Type="Path" Display="always" Required="true"
         Mask="false">
         /mnt/user/appdata/paperless/data</Config>
-    <Config Name="Paperless Media" Target="/usr/src/paperless/media"
+    <Config Name="Paperless-ngx Media" Target="/usr/src/paperless/media"
         Default="/mnt/user/appdata/paperless/media" Mode="rw"
-        Description="Paperless media directory" Type="Path" Display="always" Required="true"
+        Description="Media directory for Paperless-ngx" Type="Path" Display="always" Required="true"
         Mask="false">
         /mnt/user/appdata/paperless/media</Config>
-    <Config Name="Paperless Export" Target="/usr/src/paperless/export"
+    <Config Name="Paperless-ngx Export" Target="/usr/src/paperless/export"
         Default="/mnt/user/appdata/paperless/export" Mode="rw"
-        Description="Paperless export directory" Type="Path" Display="always" Required="true"
+        Description="Export directory for Paperless-ngx" Type="Path" Display="always"
+        Required="true"
         Mask="false">
         /mnt/user/appdata/paperless/export</Config>
-    <Config Name="Paperless Consume" Target="/usr/src/paperless/consume"
+    <Config Name="Paperless-ngx Consume" Target="/usr/src/paperless/consume"
         Default="/mnt/user/appdata/paperless/consume" Mode="rw"
-        Description="Paperless consume directory" Type="Path" Display="always" Required="true"
+        Description="Consume directory for Paperless-ngx" Type="Path" Display="always"
+        Required="true"
         Mask="false">
         /mnt/user/appdata/paperless/consume</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"

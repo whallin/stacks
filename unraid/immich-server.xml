@@ -31,9 +31,9 @@
         - A Immich Machine Learning container</Requires>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="Upload Location" Target="/usr/src/app/upload"
+    <Config Name="Immich Uploads" Target="/usr/src/app/upload"
         Default="/mnt/user/appdata/immich/uploads" Mode="rw"
-        Description="Upload location for Immich" Type="Path" Display="always" Required="true"
+        Description="Upload directory for Immich" Type="Path" Display="always" Required="true"
         Mask="false">
         /mnt/user/appdata/immich/uploads</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
@@ -67,8 +67,8 @@
         Type="Variable" Display="always" Required="true" Mask="false">0</Config>
 
     <!-- DEVICE MAPPINGS -->
-    <Config Name="QuickSync and VAAPI Device" Target="/dev/dri" Default="" Mode=""
-        Description="QuickSync and VAAPI device for hardware accelerated transcoding"
+    <Config Name="GPU Device" Target="/dev/dri" Default="" Mode=""
+        Description="GPU device for hardware accelerated transcoding"
         Type="Device"
         Display="advanced" Required="false" Mask="false">/dev/dri</Config>
 </Container>
