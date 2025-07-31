@@ -33,10 +33,6 @@
 
     <!-- CONTAINER FLAGS -->
     <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
-    <PostArgs>POST_ARGS</PostArgs>
-
-    <!-- ADDITIONAL REQUIREMENTS -->
-    <Requires>ADDITIONAL_REQUIREMENTS</Requires>
 
     <!-- MOUNTED PATHS -->
     <Config Name="Nextcloud Data" Target="/var/www/html/"
