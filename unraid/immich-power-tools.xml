@@ -46,6 +46,19 @@
         Default="https://external-address" Mode=""
         Description="External URL of the Immich server"
         Type="Variable" Display="always" Required="true" Mask="false">https://external-address</Config>
+    <Config Name="DB_USERNAME" Target="DB_USERNAME" Default="postgres" Mode=""
+        Description="Database username"
+        Type="Variable" Display="always" Required="true" Mask="false">postgres</Config>
+    <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="postgres" Mode=""
+        Description="Database password"
+        Type="Variable" Display="always" Required="true" Mask="true">postgres</Config>
+    <Config Name="DB_HOST" Target="DB_HOST" Default="172.17.0.1" Mode="" Description="Database host"
+        Type="Variable" Display="always" Required="true" Mask="false">172.17.0.1</Config>
+    <Config Name="DB_PORT" Target="DB_PORT" Default="5432" Mode="" Description="Database port"
+        Type="Variable" Display="always" Required="true" Mask="false">5432</Config>
+    <Config Name="DB_DATABASE_NAME" Target="DB_DATABASE_NAME" Default="postgres" Mode=""
+        Description="Database name"
+        Type="Variable" Display="always" Required="true" Mask="false">postgres</Config>
     <Config Name="GOOGLE_MAPS_API_KEY" Target="GOOGLE_MAPS_API_KEY" Default="" Mode=""
         Description="Google Maps API key"
         Type="Variable" Display="always" Required="false" Mask="true"></Config>
