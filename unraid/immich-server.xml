@@ -34,8 +34,7 @@
     <Config Name="Immich Uploads" Target="/usr/src/app/upload"
         Default="/mnt/user/appdata/immich/uploads" Mode="rw"
         Description="Upload directory for Immich" Type="Path" Display="always" Required="true"
-        Mask="false">
-        /mnt/user/appdata/immich/uploads</Config>
+        Mask="false">/mnt/user/appdata/immich/uploads</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

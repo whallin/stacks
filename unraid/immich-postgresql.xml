@@ -32,8 +32,10 @@
     <Support>https://github.com/immich-app/base-images/issues</Support>
     <Project>https://github.com/immich-app/base-images</Project>
     <ReadMe>https://immich.app/docs/overview/quick-start</ReadMe>
-    <Overview>PostgreSQL fork bundled with VectorChord for the exclusive use with Immich, maintained
-        by the Immich team.</Overview>
+    <Overview>
+        PostgreSQL fork bundled with VectorChord for the exclusive use with Immich, maintained by
+        the Immich team.
+    </Overview>
     <Category>Tools: Network:Management Network:Other</Category>
     <TemplateURL>
         https://raw.githubusercontent.com/whallin/stacks/develop/unraid/immich-postgresql.xml</TemplateURL>
@@ -47,8 +49,7 @@
         Default="/mnt/user/appdata/immich/postgresql/data" Mode="rw"
         Description="Data directory for Immich PostgreSQL" Type="Path" Display="always"
         Required="true"
-        Mask="false">
-        /mnt/user/appdata/immich/postgresql/data</Config>
+        Mask="false">/mnt/user/appdata/immich/postgresql/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

@@ -32,8 +32,9 @@
     <Support>https://github.com/tensorchord/VectorChord/issues</Support>
     <Project>https://github.com/tensorchord/VectorChord</Project>
     <ReadMe>https://docs.vectorchord.ai/vectorchord/getting-started/overview.html</ReadMe>
-    <Overview>Scalable, fast, and disk-friendly vector search in Postgres, the successor of
-        pgvecto.rs.</Overview>
+    <Overview>
+        Scalable, fast, and disk-friendly vector search in Postgres, the successor of pgvecto.rs.
+    </Overview>
     <Category>Tools: Network:Management Network:Other</Category>
     <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/vectorchord.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/postgresql.png</Icon>
@@ -46,8 +47,7 @@
         Default="/mnt/user/appdata/postgresql-vectorchord/data" Mode="rw"
         Description="Data directory for PostgreSQL VectorChord" Type="Path" Display="always"
         Required="true"
-        Mask="false">
-        /mnt/user/appdata/postgresql-vectorchord/data</Config>
+        Mask="false">/mnt/user/appdata/postgresql-vectorchord/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

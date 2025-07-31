@@ -45,8 +45,7 @@
         Default="/mnt/user/appdata/postgresql-pgroonga/data" Mode="rw"
         Description="Data directory for PostgreSQL PGroonga" Type="Path" Display="always"
         Required="true"
-        Mask="false">
-        /mnt/user/appdata/postgresql-pgroonga/data</Config>
+        Mask="false">/mnt/user/appdata/postgresql-pgroonga/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

@@ -32,8 +32,9 @@
     <Support>https://www.postgresql.org/support/</Support>
     <Project>https://www.postgresql.org/</Project>
     <ReadMe>https://www.postgresql.org/about/</ReadMe>
-    <Overview>The PostgreSQL object-relational database system provides reliability and data
-        integrity.</Overview>
+    <Overview>
+        The PostgreSQL object-relational database system provides reliability and data integrity.
+    </Overview>
     <Category>Tools: Network:Management Network:Other</Category>
     <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/postgresql.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/postgresql.png</Icon>
@@ -45,8 +46,7 @@
     <Config Name="PostgreSQL Data" Target="/var/lib/postgresql/data"
         Default="/mnt/user/appdata/postgresql/data" Mode="rw"
         Description="Data directory for PostgreSQL" Type="Path" Display="always" Required="true"
-        Mask="false">
-        /mnt/user/appdata/postgresql/data</Config>
+        Mask="false">/mnt/user/appdata/postgresql/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

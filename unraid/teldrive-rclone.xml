@@ -27,14 +27,12 @@
         Default="/mnt/user/appdata/teldrive-rclone/config" Mode="rw"
         Description="Configuration directory for Teldrive Rclone" Type="Path" Display="always"
         Required="true"
-        Mask="false">
-        /mnt/user/appdata/teldrive-rclone/config</Config>
+        Mask="false">/mnt/user/appdata/teldrive-rclone/config</Config>
     <Config Name="Teldrive Rclone Mount" Target="/mnt/user/appdata/teldrive-rclone/mount"
         Default="/mnt/user/appdata/teldrive-rclone/mount" Mode="rw"
         Description="Mount directory for Teldrive Rclone" Type="Path" Display="always"
         Required="true"
-        Mask="false">
-        /mnt/user/appdata/teldrive-rclone/mount</Config>
+        Mask="false">/mnt/user/appdata/teldrive-rclone/mount</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

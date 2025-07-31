@@ -24,8 +24,10 @@
     <Support>https://github.com/nextcloud/docker/issues</Support>
     <Project>https://github.com/nextcloud/docker</Project>
     <ReadMe>https://github.com/nextcloud/docker</ReadMe>
-    <Overview>A safe home for all your data. Access &amp;amp; share your files, calendars, contacts,
-        mail &amp;amp; more from any device, on your terms.</Overview>
+    <Overview>
+        A safe home for all your data. Access &amp;amp; share your files, calendars, contacts, mail
+        &amp;amp; more from any device, on your terms.
+    </Overview>
     <Category>Backup: Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:80]/</WebUI>
     <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/nextcloud.xml</TemplateURL>
@@ -40,29 +42,25 @@
         Mode="rw"
         Description="Main data directory for Nextcloud" Type="Path" Display="always"
         Required="false"
-        Mask="false">
-        /mnt/user/appdata/nextcloud/html</Config>
+        Mask="false">/mnt/user/appdata/nextcloud/html</Config>
     <Config Name="Nextcloud Custom Apps" Target="/var/www/html/custom_apps"
         Default="/mnt/user/appdata/nextcloud/custom_apps"
         Mode="rw"
         Description="Custom apps directory for Nextcloud" Type="Path" Display="always"
         Required="false"
-        Mask="false">
-        /mnt/user/appdata/nextcloud/custom_apps</Config>
+        Mask="false">/mnt/user/appdata/nextcloud/custom_apps</Config>
     <Config Name="Nextcloud Configuration" Target="/var/www/html/config"
         Default="/mnt/user/appdata/nextcloud/config"
         Mode="rw"
         Description="Configuration directory for Nextcloud" Type="Path" Display="always"
         Required="false"
-        Mask="false">
-        /mnt/user/appdata/nextcloud/config</Config>
+        Mask="false">/mnt/user/appdata/nextcloud/config</Config>
     <Config Name="Nextcloud Files" Target="/var/www/html/data"
         Default="/mnt/user/appdata/nextcloud/data"
         Mode="rw"
         Description="User files directory for Nextcloud" Type="Path" Display="always"
         Required="false"
-        Mask="false">
-        /mnt/user/appdata/nextcloud/data</Config>
+        Mask="false">/mnt/user/appdata/nextcloud/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

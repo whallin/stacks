@@ -38,12 +38,10 @@
         Default="/mnt/user/appdata/immich/machine-learning/cache" Mode="rw"
         Description="Cache directory for Immich ML model files" Type="Path" Display="always"
         Required="true"
-        Mask="false">
-        /mnt/user/appdata/immich/machine-learning/cache</Config>
+        Mask="false">/mnt/user/appdata/immich/machine-learning/cache</Config>
     <Config Name="Immich ML USB Device Path" Target="/dev/bus/usb" Default="" Mode="rw"
         Description="USB device path for OpenVINO" Type="Path" Display="advanced" Required="false"
-        Mask="false">
-        /dev/bus/usb</Config>
+        Mask="false">/dev/bus/usb</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

@@ -28,8 +28,9 @@
     <Support>https://github.com/Stirling-Tools/Stirling-PDF/issues</Support>
     <Project>https://github.com/Stirling-Tools/Stirling-PDF</Project>
     <ReadMe>https://docs.stirlingpdf.com/</ReadMe>
-    <Overview>#1 Locally hosted web application that allows you to perform various operations on PDF
-        files</Overview>
+    <Overview>
+        #1 Locally hosted web application that allows you to perform various operations on PDF files
+    </Overview>
     <Category>Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:8080]/</WebUI>
     <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/stirling-pdf.xml</TemplateURL>
@@ -42,31 +43,26 @@
     <Config Name="Stirling-PDF Training Data" Target="/usr/share/tessdata"
         Default="/mnt/user/appdata/stirling-pdf/trainingData" Mode="rw"
         Description="Training data directory for OCR" Type="Path" Display="always" Required="true"
-        Mask="false">
-        /mnt/user/appdata/stirling-pdf/trainingData</Config>
+        Mask="false">/mnt/user/appdata/stirling-pdf/trainingData</Config>
     <Config Name="Stirling-PDF Configuration" Target="/configs"
         Default="/mnt/user/appdata/stirling-pdf/configs" Mode="rw"
         Description="Configuration directory for Stirling-PDF" Type="Path" Display="always"
         Required="true"
-        Mask="false">
-        /mnt/user/appdata/stirling-pdf/configs</Config>
+        Mask="false">/mnt/user/appdata/stirling-pdf/configs</Config>
     <Config Name="Stirling-PDF Custom Files" Target="/customFiles"
         Default="/mnt/user/appdata/stirling-pdf/customFiles" Mode="rw"
         Description="Custom files directory for Stirling-PDF" Type="Path" Display="always"
         Required="true"
-        Mask="false">
-        /mnt/user/appdata/stirling-pdf/customFiles</Config>
+        Mask="false">/mnt/user/appdata/stirling-pdf/customFiles</Config>
     <Config Name="Stirling-PDF Logs" Target="/logs"
         Default="/mnt/user/appdata/stirling-pdf/logs" Mode="rw"
         Description="Logs directory for Stirling-PDF" Type="Path" Display="always" Required="true"
-        Mask="false">
-        /mnt/user/appdata/stirling-pdf/logs</Config>
+        Mask="false">/mnt/user/appdata/stirling-pdf/logs</Config>
     <Config Name="Stirling-PDF Pipeline" Target="/pipeline"
         Default="/mnt/user/appdata/stirling-pdf/pipeline" Mode="rw"
         Description="Pipeline directory for Stirling-PDF" Type="Path" Display="always"
         Required="true"
-        Mask="false">
-        /mnt/user/appdata/stirling-pdf/pipeline</Config>
+        Mask="false">/mnt/user/appdata/stirling-pdf/pipeline</Config>
 
     <!-- PORT MAPPINGS -->
     <Config Name="Web UI Port" Target="8080" Default="8080" Mode="tcp"

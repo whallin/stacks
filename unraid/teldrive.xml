@@ -14,8 +14,10 @@
     <Support>https://github.com/tgdrive/teldrive/issues</Support>
     <Project>https://github.com/tgdrive/teldrive</Project>
     <ReadMe>https://teldrive-docs.pages.dev/</ReadMe>
-    <Overview>Teldrive is a powerful utility that enables you to organise your telegram files and
-        much more.</Overview>
+    <Overview>
+        Teldrive is a powerful utility that enables you to organise your telegram files and much
+        more.
+    </Overview>
     <Category>Backup:</Category>
     <WebUI>http://[IP]:[PORT:8080]/</WebUI>
     <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/teldrive.xml</TemplateURL>
@@ -36,14 +38,12 @@
         Default="/mnt/user/appdata/teldrive/config.toml"
         Mode="rw"
         Description="Configuration file for Teldrive" Type="Path" Display="always" Required="true"
-        Mask="false">
-        /mnt/user/appdata/teldrive/config.toml</Config>
+        Mask="false">/mnt/user/appdata/teldrive/config.toml</Config>
     <Config Name="Teldrive Storage Database" Target="/storage.db"
         Default="/mnt/user/appdata/teldrive/storage.db"
         Mode="rw"
         Description="Storage database for Teldrive" Type="Path" Display="always" Required="true"
-        Mask="false">
-        /mnt/user/appdata/teldrive/storage.db</Config>
+        Mask="false">/mnt/user/appdata/teldrive/storage.db</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

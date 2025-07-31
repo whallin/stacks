@@ -14,8 +14,10 @@
     <Support>https://github.com/paperless-ngx/paperless-ngx/issues</Support>
     <Project>https://github.com/paperless-ngx/paperless-ngx</Project>
     <ReadMe>https://docs.paperless-ngx.com/setup/</ReadMe>
-    <Overview>A community-supported supercharged document management system: scan, index and archive
-        all your documents</Overview>
+    <Overview>
+        A community-supported supercharged document management system: scan, index and archive all
+        your documents
+    </Overview>
     <Category />
     <WebUI>http://[IP]:[PORT:8000]/</WebUI>
     <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/paperless-ngx.xml</TemplateURL>
@@ -34,25 +36,21 @@
     <Config Name="Paperless-ngx Data" Target="/usr/src/paperless/data"
         Default="/mnt/user/appdata/paperless/data" Mode="rw"
         Description="Data directory for Paperless-ngx" Type="Path" Display="always" Required="true"
-        Mask="false">
-        /mnt/user/appdata/paperless/data</Config>
+        Mask="false">/mnt/user/appdata/paperless/data</Config>
     <Config Name="Paperless-ngx Media" Target="/usr/src/paperless/media"
         Default="/mnt/user/appdata/paperless/media" Mode="rw"
         Description="Media directory for Paperless-ngx" Type="Path" Display="always" Required="true"
-        Mask="false">
-        /mnt/user/appdata/paperless/media</Config>
+        Mask="false">/mnt/user/appdata/paperless/media</Config>
     <Config Name="Paperless-ngx Export" Target="/usr/src/paperless/export"
         Default="/mnt/user/appdata/paperless/export" Mode="rw"
         Description="Export directory for Paperless-ngx" Type="Path" Display="always"
         Required="true"
-        Mask="false">
-        /mnt/user/appdata/paperless/export</Config>
+        Mask="false">/mnt/user/appdata/paperless/export</Config>
     <Config Name="Paperless-ngx Consume" Target="/usr/src/paperless/consume"
         Default="/mnt/user/appdata/paperless/consume" Mode="rw"
         Description="Consume directory for Paperless-ngx" Type="Path" Display="always"
         Required="true"
-        Mask="false">
-        /mnt/user/appdata/paperless/consume</Config>
+        Mask="false">/mnt/user/appdata/paperless/consume</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

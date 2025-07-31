@@ -27,8 +27,7 @@
     <Config Name="Actual Budget Data" Target="/data" Default="/mnt/user/appdata/actual-budget/data"
         Mode="rw"
         Description="Data directory for Actual Budget" Type="Path" Display="always"
-        Required="true" Mask="false">
-        /mnt/user/appdata/actual-budget/data</Config>
+        Required="true" Mask="false">/mnt/user/appdata/actual-budget/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

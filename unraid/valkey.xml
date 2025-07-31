@@ -24,8 +24,10 @@
     <Support>https://github.com/valkey-io/valkey/issues</Support>
     <Project>https://github.com/valkey-io/valkey</Project>
     <ReadMe>https://valkey.io/topics/quickstart/</ReadMe>
-    <Overview>A flexible distributed key-value database that is optimized for caching and other
-        realtime workloads.</Overview>
+    <Overview>
+        A flexible distributed key-value database that is optimized for caching and other realtime
+        workloads.
+    </Overview>
     <Category>Tools: Network:Management Network:Other</Category>
     <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/valkey.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/valkey.png</Icon>
@@ -37,8 +39,7 @@
     <!-- MOUNTED PATHS -->
     <Config Name="Valkey Data" Target="/data" Default="/mnt/user/appdata/valkey/data" Mode="rw"
         Description="Data directory for Valkey" Type="Path" Display="always" Required="true"
-        Mask="false">
-        /mnt/user/appdata/valkey/data</Config>
+        Mask="false">/mnt/user/appdata/valkey/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

@@ -14,8 +14,10 @@
     <Support>https://github.com/cloudflare/cloudflared/issues</Support>
     <Project>https://github.com/cloudflare/cloudflared</Project>
     <ReadMe>https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/</ReadMe>
-    <Overview>Client for Cloudflare Tunnel, a daemon that exposes private services through the
-        Cloudflare edge.</Overview>
+    <Overview>
+        Client for Cloudflare Tunnel, a daemon that exposes private services through the Cloudflare
+        edge.
+    </Overview>
     <Category>Network:Web Network:Proxy</Category>
     <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/cloudflared.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/cloudflare.png</Icon>
