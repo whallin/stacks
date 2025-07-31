@@ -6,7 +6,7 @@
     <Registry>https://github.com/tgdrive/rclone/pkgs/container/rclone</Registry>
 
     <!-- CONTAINER SETTINGS -->
-    <Network>host</Network> <!-- host or bridge -->
+    <Network>bridge</Network> <!-- host or bridge -->
     <Shell>sh</Shell>
     <Privileged>true</Privileged>
 
