@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>nextcloud</Name>
+    <Repository>nextcloud:latest</Repository>
+    <Registry>https://hub.docker.com/_/nextcloud/</Registry>
+
+    <!-- BRANCHES -->
+    <Branch>
+        <Tag>apache</Tag>
+        <TagDescription>Latest version of Nextcloud with Apache web server</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>fpm</Tag>
+        <TagDescription>Latest version of Nextcloud running FastCGI</TagDescription>
+    </Branch>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>bridge</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/nextcloud/docker/issues</Support>
+    <Project>https://github.com/nextcloud/docker</Project>
+    <ReadMe>https://github.com/nextcloud/docker</ReadMe>
+    <Overview>A safe home for all your data. Access &amp;amp; share your files, calendars, contacts,
+        mail &amp;amp; more from any device, on your terms.</Overview>
+    <Category>Backup: Productivity: Tools:</Category>
+    <WebUI>http://[IP]:[PORT:80]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/nextcloud.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/nextcloud.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+    <PostArgs>POST_ARGS</PostArgs>
+
+    <!-- ADDITIONAL REQUIREMENTS -->
+    <Requires>ADDITIONAL_REQUIREMENTS</Requires>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Nextcloud Data" Target="/var/www/html/"
+        Default="/mnt/user/appdata/nextcloud/html"
+        Mode="rw"
+        Description="Main data directory for Nextcloud" Type="Path" Display="always"
+        Required="false"
+        Mask="false">
+        /mnt/user/appdata/nextcloud/html</Config>
+    <Config Name="Nextcloud Custom Apps" Target="/var/www/html/custom_apps"
+        Default="/mnt/user/appdata/nextcloud/custom_apps"
+        Mode="rw"
+        Description="Custom apps directory for Nextcloud" Type="Path" Display="always"
+        Required="false"
+        Mask="false">
+        /mnt/user/appdata/nextcloud/custom_apps</Config>
+    <Config Name="Nextcloud Configuration" Target="/var/www/html/config"
+        Default="/mnt/user/appdata/nextcloud/config"
+        Mode="rw"
+        Description="Configuration directory for Nextcloud" Type="Path" Display="always"
+        Required="false"
+        Mask="false">
+        /mnt/user/appdata/nextcloud/config</Config>
+    <Config Name="Nextcloud Files" Target="/var/www/html/data"
+        Default="/mnt/user/appdata/nextcloud/data"
+        Mode="rw"
+        Description="User files directory for Nextcloud" Type="Path" Display="always"
+        Required="false"
+        Mask="false">
+        /mnt/user/appdata/nextcloud/data</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web UI Port" Target="80" Default="80" Mode="tcp"
+        Description="Web UI port for Nextcloud" Type="Port"
+        Display="always" Required="true" Mask="false">80</Config>
+    <Config Name="FastCGI Port" Target="9000" Default="9000" Mode="tcp"
+        Description="FastCGI port for Nextcloud (when using FPM)" Type="Port"
+        Display="always" Required="false" Mask="false">9000</Config>
+</Container>
