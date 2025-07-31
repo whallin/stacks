@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>multi-scrobbler</Name>
+    <Repository>ghcr.io/foxxmd/multi-scrobbler:latest</Repository>
+    <Registry>https://github.com/FoxxMD/multi-scrobbler/pkgs/container/multi-scrobbler</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>bridge</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/FoxxMD/multi-scrobbler/issues</Support>
+    <Project>https://github.com/FoxxMD/multi-scrobbler</Project>
+    <ReadMe>https://foxxmd.github.io/multi-scrobbler/docs/quickstart/</ReadMe>
+    <Overview>Scrobble plays from multiple sources to multiple clients</Overview>
+    <Category>MediaApp:Music</Category>
+    <WebUI>http://[IP]:[PORT:9078]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/multi-scrobbler.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/multi-scrobbler.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Multi-Scrobbler Configuration" Target="/config"
+        Default="/mnt/user/appdata/multi-scrobbler/config"
+        Mode="rw"
+        Description="Configuration directory for Multi-Scrobbler" Type="Path" Display="always"
+        Required="true" Mask="false">/mnt/user/appdata/multi-scrobbler/config</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web UI Port" Target="9078" Default="9078" Mode="tcp"
+        Description="Web UI Port for Multi-Scrobbler"
+        Type="Port"
+        Display="always" Required="true" Mask="false">9078</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="PUID" Target="PUID" Default="1000" Mode=""
+        Description="User ID for the application"
+        Type="Variable" Display="always" Required="true" Mask="false">1000</Config>
+    <Config Name="PGID" Target="PGID" Default="1000" Mode=""
+        Description="Group ID for the application"
+        Type="Variable" Display="always" Required="true" Mask="false">1000</Config>
+</Container>

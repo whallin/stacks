@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>nicotine-plus</Name>
+    <Repository>ghcr.io/fletchto99/nicotine-plus-docker:latest</Repository>
+    <Registry>https://github.com/fletchto99/nicotine-plus-docker/pkgs/container/nicotine-plus-docker</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>bridge</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/fletchto99/nicotine-plus-docker/issues</Support>
+    <Project>https://github.com/fletchto99/nicotine-plus-docker</Project>
+    <ReadMe>https://github.com/fletchto99/nicotine-plus-docker</ReadMe>
+    <Overview>Nicotine+ is a graphical client for the Soulseek peer-to-peer network.</Overview>
+    <Category>MediaApp:Music</Category>
+    <WebUI>http://[IP]:[PORT:6080]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/nicotine-plus.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/nicotine-plus.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Nicotine+ Configuration" Target="/config"
+        Default="/mnt/user/appdata/nicotine-plus/config" Mode="rw"
+        Description="Configuration directory for Nicotine+" Type="Path" Display="always"
+        Required="true" Mask="false">/mnt/user/appdata/nicotine-plus/config</Config>
+    <Config Name="Nicotine+ Downloads" Target="/data/downloads"
+        Default="/mnt/user/appdata/nicotine-plus/downloads" Mode="rw"
+        Description="Downloads directory for Nicotine+" Type="Path" Display="always" Required="true"
+        Mask="false">/mnt/user/appdata/nicotine-plus/downloads</Config>
+    <Config Name="Nicotine+ Incomplete Downloads" Target="/data/incomplete_downloads"
+        Default="/mnt/user/appdata/nicotine-plus/incomplete_downloads" Mode="rw"
+        Description="Incomplete downloads directory for Nicotine+" Type="Path" Display="always"
+        Required="true" Mask="false">/mnt/user/appdata/nicotine-plus/incomplete_downloads</Config>
+    <Config Name="Nicotine+ Shared Files" Target="/data/shared"
+        Default="/mnt/user/appdata/nicotine-plus/shared" Mode="rw"
+        Description="Shared files directory for Nicotine+" Type="Path" Display="always"
+        Required="false" Mask="false">/mnt/user/appdata/nicotine-plus/shared</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web UI Port" Target="6080" Default="6080" Mode="tcp"
+        Description="Web UI Port for Nicotine+ (VNC)" Type="Port"
+        Display="always" Required="true" Mask="false">6080</Config>
+    <Config Name="Peer-to-peer Port" Target="2234" Default="2234" Mode="tcp"
+        Description="Peer-to-peer Port for Nicotine+" Type="Port"
+        Display="always" Required="true" Mask="false">2234</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="CUSTOM_USER" Target="CUSTOM_USER" Default="abc" Mode=""
+        Description="Username for HTTP Basic Auth"
+        Type="Variable" Display="always" Required="true" Mask="false">abc</Config>
+    <Config Name="PASSWORD" Target="PASSWORD" Default="abc" Mode=""
+        Description="Password for HTTP Basic Auth"
+        Type="Variable" Display="always" Required="false" Mask="true">abc</Config>
+
+    <!-- DEVICE MAPPINGS -->
+    <Config Name="GPU Device" Target="/dev/dri" Default="" Mode=""
+        Description="GPU device for hardware acceleration"
+        Type="Device"
+        Display="advanced" Required="false" Mask="false">/dev/dri</Config>
+</Container>

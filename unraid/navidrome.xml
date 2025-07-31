@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>navidrome</Name>
+    <Repository>ghcr.io/navidrome/navidrome:latest</Repository>
+    <Registry>https://github.com/navidrome/navidrome/pkgs/container/navidrome</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>bridge</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/navidrome/navidrome/issues</Support>
+    <Project>https://www.navidrome.org/</Project>
+    <ReadMe>https://www.navidrome.org/docs/installation/docker/</ReadMe>
+    <Overview>OVERVIEW</Overview>
+    <Category>MediaApp:Music MediaServer:Music</Category>
+    <WebUI>http://[IP]:[PORT:4533]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/navidrome.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/navidrome.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Navidrome Data" Target="/data" Default="/mnt/user/appdata/navidrome/data"
+        Mode="rw"
+        Description="Data directory for Navidrome" Type="Path" Display="always" Required="true"
+        Mask="false">/mnt/user/appdata/navidrome/data</Config>
+    <Config Name="Navidrome Music" Target="/music" Default="/mnt/user/appdata/navidrome/music"
+        Mode="ro"
+        Description="Music files directory for Navidrome" Type="Path" Display="always"
+        Required="true"
+        Mask="false">/mnt/user/appdata/navidrome/music</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web UI Port" Target="4533" Default="4533" Mode="tcp"
+        Description="Web UI Port for Navidrome"
+        Type="Port" Display="always" Required="true" Mask="false">4533</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="ND_ENABLEINSIGHTSCOLLECTOR" Target="ND_ENABLEINSIGHTSCOLLECTOR"
+        Default="true|false" Mode=""
+        Description="Controls whether the server will run Anonymous Data Collection to improve the project."
+        Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+</Container>

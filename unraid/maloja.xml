@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>maloja</Name>
+    <Repository>krateng/maloja:latest</Repository>
+    <Registry>https://hub.docker.com/r/krateng/maloja</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>bridge</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/krateng/maloja/issues</Support>
+    <Project>https://github.com/krateng/maloja</Project>
+    <ReadMe>https://github.com/krateng/maloja</ReadMe>
+    <Overview>Simple self-hosted music scrobble database to create personal listening statistics.</Overview>
+    <Category>MediaApp:Music</Category>
+    <WebUI>http://[IP]:[PORT:42010]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/maloja.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/maloja.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Maloja Data" Target="/mljdata" Default="/mnt/user/appdata/maloja/data" Mode="rw"
+        Description="Maloja data directory" Type="Path" Display="always" Required="true"
+        Mask="false">/mnt/user/appdata/maloja/data</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web UI Port" Target="42010" Default="42010" Mode="tcp"
+        Description="Web UI Port for Maloja"
+        Type="Port"
+        Display="always" Required="true" Mask="false">42010</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="MALOJA_DATA_DIRECTORY" Target="MALOJA_DATA_DIRECTORY" Default="/mljdata" Mode=""
+        Description="Directory for Maloja data"
+        Type="Variable" Display="always" Required="true" Mask="false">/mljdata</Config>
+    <Config Name="MALOJA_FORCE_PASSWORD" Target="MALOJA_FORCE_PASSWORD" Default="password" Mode=""
+        Description="Password for the web UI"
+        Type="Variable" Display="always" Required="true" Mask="true">password</Config>
+    <Config Name="PUID" Target="PUID" Default="1000" Mode=""
+        Description="User ID for the application"
+        Type="Variable" Display="always" Required="true" Mask="false">1000</Config>
+    <Config Name="PGID" Target="PGID" Default="1000" Mode=""
+        Description="Group ID for the application"
+        Type="Variable" Display="always" Required="true" Mask="false">1000</Config>
+</Container>
