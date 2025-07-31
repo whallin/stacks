@@ -14,7 +14,7 @@
     <Support>https://github.com/navidrome/navidrome/issues</Support>
     <Project>https://www.navidrome.org/</Project>
     <ReadMe>https://www.navidrome.org/docs/installation/docker/</ReadMe>
-    <Overview>OVERVIEW</Overview>
+    <Overview>Navidrome is an open source web-based music collection server and streamer.</Overview>
     <Category>MediaApp:Music MediaServer:Music</Category>
     <WebUI>http://[IP]:[PORT:4533]/</WebUI>
     <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/navidrome.xml</TemplateURL>
