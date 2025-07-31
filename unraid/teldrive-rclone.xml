@@ -8,7 +8,7 @@
     <!-- CONTAINER SETTINGS -->
     <Network>host</Network> <!-- host or bridge -->
     <Shell>sh</Shell>
-    <Privileged>false</Privileged>
+    <Privileged>true</Privileged>
 
     <!-- TEMPLATE INFORMATION -->
     <Support>https://github.com/tgdrive/teldrive/issues</Support>
