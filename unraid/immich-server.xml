@@ -30,7 +30,7 @@
         - A Immich Machine Learning container</Requires>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="Immich Uploads" Target="/usr/src/app/upload"
+    <Config Name="Immich Uploads" Target="/data"
         Default="/mnt/user/appdata/immich/uploads" Mode="rw"
         Description="Upload directory for Immich" Type="Path" Display="always" Required="true"
         Mask="false">/mnt/user/appdata/immich/uploads</Config>
