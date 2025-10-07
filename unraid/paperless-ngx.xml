@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <Container version="2">
     <!-- IMAGE -->
-    <Name>paperless-ngx</Name>
-    <Repository>ghcr.io/paperless-ngx/paperless-ngx:latest</Repository>
-    <Registry>https://github.com/paperless-ngx/paperless-ngx/pkgs/container/paperless-ngx</Registry>
+    <Name>NAME</Name>
+    <Repository>REPOSITORY</Repository>
+    <Registry>REGISTRY_URL</Registry>
 
     <!-- CONTAINER SETTINGS -->
     <Network>bridge</Network> <!-- host or bridge -->
@@ -11,104 +11,43 @@
     <Privileged>false</Privileged>
 
     <!-- TEMPLATE INFORMATION -->
-    <Support>https://github.com/paperless-ngx/paperless-ngx/issues</Support>
-    <Project>https://github.com/paperless-ngx/paperless-ngx</Project>
-    <ReadMe>https://docs.paperless-ngx.com/setup/</ReadMe>
-    <Overview>
-        A community-supported supercharged document management system: scan, index and archive all
-        your documents
-    </Overview>
+    <Support>SUPPORT_THREAD_URL</Support>
+    <Project>PROJECT_PAGE_URL</Project>
+    <ReadMe>README_URL</ReadMe>
+    <Overview>OVERVIEW</Overview>
     <Category />
-    <WebUI>http://[IP]:[PORT:8000]/</WebUI>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/paperless-ngx.xml</TemplateURL>
-    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/paperless-ngx.png</Icon>
+    <WebUI>http://[IP]:[PORT:80]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/NAME.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/NAME.png</Icon>
 
     <!-- CONTAINER FLAGS -->
-    <ExtraParams>--no-healthcheck --restart=unless-stopped</ExtraParams>
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+    <PostArgs>POST_ARGS</PostArgs>
 
     <!-- ADDITIONAL REQUIREMENTS -->
-    <Requires>Paperless-ngx requires:&#xD;
-        - A Redis-compatibile database&#xD;
-        - A PostgreSQL or MySQL-compatible database&#xD;
-        - (optional) Apache Tika and Gotenberg for parsing Office documents and emails</Requires>
+    <Requires>ADDITIONAL_REQUIREMENTS</Requires>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="Paperless-ngx Data" Target="/usr/src/paperless/data"
-        Default="/mnt/user/appdata/paperless/data" Mode="rw"
-        Description="Data directory for Paperless-ngx" Type="Path" Display="always" Required="true"
-        Mask="false">/mnt/user/appdata/paperless/data</Config>
-    <Config Name="Paperless-ngx Media" Target="/usr/src/paperless/media"
-        Default="/mnt/user/appdata/paperless/media" Mode="rw"
-        Description="Media directory for Paperless-ngx" Type="Path" Display="always" Required="true"
-        Mask="false">/mnt/user/appdata/paperless/media</Config>
-    <Config Name="Paperless-ngx Export" Target="/usr/src/paperless/export"
-        Default="/mnt/user/appdata/paperless/export" Mode="rw"
-        Description="Export directory for Paperless-ngx" Type="Path" Display="always"
-        Required="true"
-        Mask="false">/mnt/user/appdata/paperless/export</Config>
-    <Config Name="Paperless-ngx Consume" Target="/usr/src/paperless/consume"
-        Default="/mnt/user/appdata/paperless/consume" Mode="rw"
-        Description="Consume directory for Paperless-ngx" Type="Path" Display="always"
-        Required="true"
-        Mask="false">/mnt/user/appdata/paperless/consume</Config>
+    <Config Name="NAME" Target="CONTAINER_PATH" Default="DEFAULT" Mode="rw"
+        Description="DESCRIPTION" Type="Path" Display="always" Required="false" Mask="false">
+        HOST_PATH</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="Web UI Port" Target="8000" Default="8000" Mode="tcp"
-        Description="Web UI port for Paperless-ngx" Type="Port"
-        Display="always" Required="true" Mask="false">8000</Config>
+    <Config Name="PORT" Target="80" Default="80" Mode="tcp" Description="DESCRIPTION" Type="Port"
+        Display="always" Required="true" Mask="false">80</Config>
 
     <!-- ENVIRONMENT VARIABLES -->
-    <!-- ENV: Redis Broker -->
-    <Config Name="PAPERLESS_REDIS" Target="PAPERLESS_REDIS"
-        Default="redis://username:password@host:port/dbindex" Mode=""
-        Description="Redis connection string"
-        Type="Variable" Display="always" Required="true" Mask="false">
-        redis://username:password@host:port/dbindex</Config>
-    <!-- ENV: Database -->
-    <Config Name="PAPERLESS_DBENGINE" Target="PAPERLESS_DBENGINE" Default="postgresql|mariadb"
-        Mode="" Description="Database engine to use (postgresql or mariadb)"
-        Type="Variable" Display="always" Required="false" Mask="false"></Config>
-    <Config Name="PAPERLESS_DBHOST" Target="PAPERLESS_DBHOST" Default="172.17.0.1" Mode=""
-        Description="Database hostname or IP address"
-        Type="Variable" Display="always" Required="true" Mask="false">172.17.0.1</Config>
-    <Config Name="PAPERLESS_DBPORT" Target="PAPERLESS_DBPORT" Default="5432" Mode=""
-        Description="Database port number"
-        Type="Variable" Display="always" Required="true" Mask="false">5432</Config>
-    <Config Name="PAPERLESS_DBNAME" Target="PAPERLESS_DBNAME" Default="paperless" Mode=""
-        Description="Database name"
-        Type="Variable" Display="always" Required="true" Mask="false">paperless</Config>
-    <Config Name="PAPERLESS_DBUSER" Target="PAPERLESS_DBUSER" Default="paperless" Mode=""
-        Description="Database username"
-        Type="Variable" Display="always" Required="true" Mask="false">paperless</Config>
-    <Config Name="PAPERLESS_DBPASS" Target="PAPERLESS_DBPASS" Default="paperless" Mode=""
-        Description="Database password"
-        Type="Variable" Display="always" Required="true" Mask="true">paperless</Config>
-    <!-- ENV: Optional Services - Tika -->
-    <Config Name="PAPERLESS_TIKA_ENABLED" Target="PAPERLESS_TIKA_ENABLED" Default="false|true"
-        Mode="" Description="Enable or disable Tika integration"
-        Type="Variable" Display="always" Required="false" Mask="false"></Config>
-    <Config Name="PAPERLESS_TIKA_ENDPOINT" Target="PAPERLESS_TIKA_ENDPOINT"
-        Default="http://localhost:9998" Mode="" Description="Tika server endpoint"
-        Type="Variable" Display="always" Required="false" Mask="false">http://localhost:9998</Config>
-    <Config Name="PAPERLESS_TIKA_GOTENBERG_ENDPOINT" Target="PAPERLESS_TIKA_GOTENBERG_ENDPOINT"
-        Default="http://localhost:3000" Mode="" Description="Gotenberg server endpoint"
-        Type="Variable" Display="always" Required="false" Mask="false">http://localhost:3000</Config>
-    <!-- ENV: Hosting & Security -->
-    <Config Name="PAPERLESS_SECRET_KEY" Target="PAPERLESS_SECRET_KEY" Default="secret" Mode=""
-        Description="Secret key for Paperless"
-        Type="Variable" Display="always" Required="true" Mask="true">secret</Config>
-    <Config Name="PAPERLESS_URL" Target="PAPERLESS_URL" Default=""
-        Mode="" Description="Paperless URL"
-        Type="Variable" Display="always" Required="false" Mask="false"></Config>
-    <!-- ENV: OCR settings -->
-    <Config Name="PAPERLESS_OCR_LANGUAGE" Target="PAPERLESS_OCR_LANGUAGE" Default="eng" Mode=""
-        Description="OCR language to use for document processing"
-        Type="Variable" Display="always" Required="false" Mask="false">eng</Config>
-    <!-- ENV: Docker-specific options -->
-    <Config Name="PAPERLESS_OCR_LANGUAGES" Target="PAPERLESS_OCR_LANGUAGES" Default="swe" Mode=""
-        Description="Space-separated list of OCR languages to install"
-        Type="Variable" Display="always" Required="false" Mask="false">swe</Config>
+    <Config Name="VARIABLE" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
+        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
+
+    <!-- LABELS -->
+    <Config Name="NAME" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
+        Type="Label" Display="always" Required="true" Mask="false">VALUE</Config>
+
+    <!-- DEVICE MAPPINGS -->
+    <Config Name="NAME" Target="VALUE" Default="" Mode="" Description="DESCRIPTION" Type="Device"
+        Display="always" Required="true" Mask="false">VALUE</Config>
 </Container>

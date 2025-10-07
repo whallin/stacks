@@ -1,15 +1,9 @@
 <?xml version="1.0"?>
 <Container version="2">
     <!-- IMAGE -->
-    <Name>apache-tika</Name>
-    <Repository>apache/tika:latest</Repository>
-    <Registry>https://hub.docker.com/r/apache/tika</Registry>
-
-    <!-- BRANCHES -->
-    <Branch>
-        <Tag>latest-full</Tag>
-        <TagDescription>Includes GDAL and Tesseract parser dependencies</TagDescription>
-    </Branch>
+    <Name>NAME</Name>
+    <Repository>REPOSITORY</Repository>
+    <Registry>REGISTRY_URL</Registry>
 
     <!-- CONTAINER SETTINGS -->
     <Network>bridge</Network> <!-- host or bridge -->
@@ -17,28 +11,43 @@
     <Privileged>false</Privileged>
 
     <!-- TEMPLATE INFORMATION -->
-    <Support>https://issues.apache.org/jira/projects/TIKA/issues</Support>
-    <Project>https://tika.apache.org/</Project>
-    <ReadMe>https://tika.apache.org/3.2.1/gettingstarted.html</ReadMe>
-    <Overview>
-        The Apache Tika toolkit detects and extracts metadata and text from over a thousand
-        different file types (such as PPT, XLS, and PDF).
-    </Overview>
-    <Category>Tools:</Category>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/apache-tika.xml</TemplateURL>
-    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/apache-tika.png</Icon>
+    <Support>SUPPORT_THREAD_URL</Support>
+    <Project>PROJECT_PAGE_URL</Project>
+    <ReadMe>README_URL</ReadMe>
+    <Overview>OVERVIEW</Overview>
+    <Category />
+    <WebUI>http://[IP]:[PORT:80]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/NAME.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/NAME.png</Icon>
 
     <!-- CONTAINER FLAGS -->
     <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+    <PostArgs>POST_ARGS</PostArgs>
+
+    <!-- ADDITIONAL REQUIREMENTS -->
+    <Requires>ADDITIONAL_REQUIREMENTS</Requires>
 
     <!-- MOUNTED PATHS -->
+    <Config Name="NAME" Target="CONTAINER_PATH" Default="DEFAULT" Mode="rw"
+        Description="DESCRIPTION" Type="Path" Display="always" Required="false" Mask="false">
+        HOST_PATH</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="API Port" Target="9998" Default="9998" Mode="tcp"
-        Description="API port for Apache Tika"
-        Type="Port"
-        Display="always" Required="true" Mask="false">9998</Config>
+    <Config Name="PORT" Target="80" Default="80" Mode="tcp" Description="DESCRIPTION" Type="Port"
+        Display="always" Required="true" Mask="false">80</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="VARIABLE" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
+        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
+
+    <!-- LABELS -->
+    <Config Name="NAME" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
+        Type="Label" Display="always" Required="true" Mask="false">VALUE</Config>
+
+    <!-- DEVICE MAPPINGS -->
+    <Config Name="NAME" Target="VALUE" Default="" Mode="" Description="DESCRIPTION" Type="Device"
+        Display="always" Required="true" Mask="false">VALUE</Config>
 </Container>

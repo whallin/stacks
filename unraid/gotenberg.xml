@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <Container version="2">
     <!-- IMAGE -->
-    <Name>gotenberg</Name>
-    <Repository>gotenberg/gotenberg:latest</Repository>
-    <Registry>https://hub.docker.com/r/gotenberg/gotenberg</Registry>
+    <Name>NAME</Name>
+    <Repository>REPOSITORY</Repository>
+    <Registry>REGISTRY_URL</Registry>
 
     <!-- CONTAINER SETTINGS -->
     <Network>bridge</Network> <!-- host or bridge -->
@@ -11,26 +11,43 @@
     <Privileged>false</Privileged>
 
     <!-- TEMPLATE INFORMATION -->
-    <Support>https://github.com/gotenberg/gotenberg/issues</Support>
-    <Project>https://github.com/gotenberg/gotenberg</Project>
-    <ReadMe>https://gotenberg.dev/docs/getting-started/introduction</ReadMe>
-    <Overview>A containerized API for seamless PDF conversion.</Overview>
-    <Category>Tools:</Category>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/gotenberg.xml</TemplateURL>
-    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/golang.png</Icon>
+    <Support>SUPPORT_THREAD_URL</Support>
+    <Project>PROJECT_PAGE_URL</Project>
+    <ReadMe>README_URL</ReadMe>
+    <Overview>OVERVIEW</Overview>
+    <Category />
+    <WebUI>http://[IP]:[PORT:80]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/NAME.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/NAME.png</Icon>
 
     <!-- CONTAINER FLAGS -->
-    <ExtraParams>--no-healthcheck --restart=unless-stopped</ExtraParams>
-    <PostArgs>gotenberg --chromium-disable-javascript=true --chromium-allow-list=file:///tmp/.*</PostArgs>
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+    <PostArgs>POST_ARGS</PostArgs>
+
+    <!-- ADDITIONAL REQUIREMENTS -->
+    <Requires>ADDITIONAL_REQUIREMENTS</Requires>
 
     <!-- MOUNTED PATHS -->
+    <Config Name="NAME" Target="CONTAINER_PATH" Default="DEFAULT" Mode="rw"
+        Description="DESCRIPTION" Type="Path" Display="always" Required="false" Mask="false">
+        HOST_PATH</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="API Port" Target="3000" Default="3000" Mode="tcp"
-        Description="API port for Gotenberg"
-        Type="Port"
-        Display="always" Required="true" Mask="false">3000</Config>
+    <Config Name="PORT" Target="80" Default="80" Mode="tcp" Description="DESCRIPTION" Type="Port"
+        Display="always" Required="true" Mask="false">80</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="VARIABLE" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
+        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
+
+    <!-- LABELS -->
+    <Config Name="NAME" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
+        Type="Label" Display="always" Required="true" Mask="false">VALUE</Config>
+
+    <!-- DEVICE MAPPINGS -->
+    <Config Name="NAME" Target="VALUE" Default="" Mode="" Description="DESCRIPTION" Type="Device"
+        Display="always" Required="true" Mask="false">VALUE</Config>
 </Container>
