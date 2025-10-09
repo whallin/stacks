@@ -1,53 +1,38 @@
 <?xml version="1.0"?>
 <Container version="2">
     <!-- IMAGE -->
-    <Name>NAME</Name>
-    <Repository>REPOSITORY</Repository>
-    <Registry>REGISTRY_URL</Registry>
+    <Name>actual-budget</Name>
+    <Repository>ghcr.io/actualbudget/actual:latest</Repository>
+    <Registry>https://github.com/actualbudget/actual/pkgs/container/actual</Registry>
 
     <!-- CONTAINER SETTINGS -->
-    <Network>bridge</Network> <!-- host or bridge -->
+    <Network>host</Network> <!-- host or bridge -->
     <Shell>sh</Shell>
     <Privileged>false</Privileged>
 
     <!-- TEMPLATE INFORMATION -->
-    <Support>SUPPORT_THREAD_URL</Support>
-    <Project>PROJECT_PAGE_URL</Project>
-    <ReadMe>README_URL</ReadMe>
-    <Overview>OVERVIEW</Overview>
-    <Category />
-    <WebUI>http://[IP]:[PORT:80]/</WebUI>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/NAME.xml</TemplateURL>
-    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/NAME.png</Icon>
+    <Support>https://github.com/actualbudget/actual/issues</Support>
+    <Project>https://github.com/actualbudget/actual</Project>
+    <ReadMe>https://actualbudget.org/docs/</ReadMe>
+    <Overview>Actual Budget is a super fast and privacy-focused app for managing your finances.</Overview>
+    <Category>Productivity: Tools:</Category>
+    <WebUI>http://[IP]:[PORT:5006]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/actual-budget.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/actual-budget.png</Icon>
 
     <!-- CONTAINER FLAGS -->
-    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
-    <PostArgs>POST_ARGS</PostArgs>
-
-    <!-- ADDITIONAL REQUIREMENTS -->
-    <Requires>ADDITIONAL_REQUIREMENTS</Requires>
+    <ExtraParams>--no-healthcheck --restart=unless-stopped</ExtraParams>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="NAME" Target="CONTAINER_PATH" Default="DEFAULT" Mode="rw"
-        Description="DESCRIPTION" Type="Path" Display="always" Required="false" Mask="false">
-        HOST_PATH</Config>
+    <Config Name="Actual Budget Data" Target="/data" Default="/mnt/user/appdata/actual-budget"
+        Mode="rw" Description="Data directory for Actual Budget" Type="Path" Display="always"
+        Required="true" Mask="false">/mnt/user/appdata/actual-budget</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="PORT" Target="80" Default="80" Mode="tcp" Description="DESCRIPTION" Type="Port"
-        Display="always" Required="true" Mask="false">80</Config>
-
-    <!-- ENVIRONMENT VARIABLES -->
-    <Config Name="VARIABLE" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
-        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
-
-    <!-- LABELS -->
-    <Config Name="NAME" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
-        Type="Label" Display="always" Required="true" Mask="false">VALUE</Config>
-
-    <!-- DEVICE MAPPINGS -->
-    <Config Name="NAME" Target="VALUE" Default="" Mode="" Description="DESCRIPTION" Type="Device"
-        Display="always" Required="true" Mask="false">VALUE</Config>
+    <Config Name="Web UI Port" Target="5006" Default="5006" Mode="tcp"
+        Description="Web UI Port for Actual Budget" Type="Port" Display="always" Required="true"
+        Mask="false">5006</Config>
 </Container>

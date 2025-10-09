@@ -1,53 +1,44 @@
 <?xml version="1.0"?>
 <Container version="2">
     <!-- IMAGE -->
-    <Name>NAME</Name>
-    <Repository>REPOSITORY</Repository>
-    <Registry>REGISTRY_URL</Registry>
+    <Name>ontime</Name>
+    <Repository>getontime/ontime:latest</Repository>
+    <Registry>https://hub.docker.com/r/getontime/ontime</Registry>
 
     <!-- CONTAINER SETTINGS -->
-    <Network>bridge</Network> <!-- host or bridge -->
+    <Network>host</Network> <!-- host or bridge -->
     <Shell>sh</Shell>
     <Privileged>false</Privileged>
 
     <!-- TEMPLATE INFORMATION -->
-    <Support>SUPPORT_THREAD_URL</Support>
-    <Project>PROJECT_PAGE_URL</Project>
-    <ReadMe>README_URL</ReadMe>
-    <Overview>OVERVIEW</Overview>
-    <Category />
-    <WebUI>http://[IP]:[PORT:80]/</WebUI>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/NAME.xml</TemplateURL>
-    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/NAME.png</Icon>
+    <Support>https://github.com/cpvalente/ontime/issues</Support>
+    <Project>https://github.com/cpvalente/ontime</Project>
+    <ReadMe>https://docs.getontime.no/</ReadMe>
+    <Overview>
+        Ontime is a browser-based application that manages event rundowns, scheduling, and
+        cueing.
+    </Overview>
+    <Category>Productivity: Tools:</Category>
+    <WebUI>http://[IP]:[PORT:4001]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/ontime.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/ontime.png</Icon>
 
     <!-- CONTAINER FLAGS -->
     <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
-    <PostArgs>POST_ARGS</PostArgs>
-
-    <!-- ADDITIONAL REQUIREMENTS -->
-    <Requires>ADDITIONAL_REQUIREMENTS</Requires>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="NAME" Target="CONTAINER_PATH" Default="DEFAULT" Mode="rw"
-        Description="DESCRIPTION" Type="Path" Display="always" Required="false" Mask="false">
-        HOST_PATH</Config>
+    <Config Name="Ontime Data" Target="/data" Default="/mnt/user/appdata/ontime" Mode="rw"
+        Description="Data directory for Ontime" Type="Path" Display="always" Required="true"
+        Mask="false">/mnt/user/appdata/ontime</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="PORT" Target="80" Default="80" Mode="tcp" Description="DESCRIPTION" Type="Port"
-        Display="always" Required="true" Mask="false">80</Config>
-
-    <!-- ENVIRONMENT VARIABLES -->
-    <Config Name="VARIABLE" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
-        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
-
-    <!-- LABELS -->
-    <Config Name="NAME" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
-        Type="Label" Display="always" Required="true" Mask="false">VALUE</Config>
-
-    <!-- DEVICE MAPPINGS -->
-    <Config Name="NAME" Target="VALUE" Default="" Mode="" Description="DESCRIPTION" Type="Device"
-        Display="always" Required="true" Mask="false">VALUE</Config>
+    <Config Name="Web UI Port" Target="4001" Default="4001" Mode="tcp"
+        Description="Web UI Port for Ontime" Type="Port" Display="always" Required="true"
+        Mask="false">4001</Config>
+    <Config Name="OSC Input Port" Target="8888" Default="8888" Mode="udp"
+        Description="OSC Input Port for Ontime" Type="Port" Display="always" Required="false"
+        Mask="false">8888</Config>
 </Container>

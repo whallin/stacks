@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <Container version="2">
     <!-- IMAGE -->
-    <Name>NAME</Name>
-    <Repository>REPOSITORY</Repository>
-    <Registry>REGISTRY_URL</Registry>
+    <Name>nextcloud</Name>
+    <Repository>nextcloud:32</Repository>
+    <Registry>https://hub.docker.com/_/nextcloud/</Registry>
 
     <!-- CONTAINER SETTINGS -->
     <Network>bridge</Network> <!-- host or bridge -->
@@ -11,43 +11,69 @@
     <Privileged>false</Privileged>
 
     <!-- TEMPLATE INFORMATION -->
-    <Support>SUPPORT_THREAD_URL</Support>
-    <Project>PROJECT_PAGE_URL</Project>
-    <ReadMe>README_URL</ReadMe>
-    <Overview>OVERVIEW</Overview>
-    <Category />
+    <Support>https://github.com/nextcloud/docker/issues</Support>
+    <Project>https://github.com/nextcloud/docker</Project>
+    <ReadMe>https://github.com/nextcloud/docker</ReadMe>
+    <Overview>
+        A safe home for all your data. Access &amp;amp; share your files, calendars, contacts, mail
+        &amp;amp; more from any device, on your terms.
+    </Overview>
+    <Category>Backup: Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:80]/</WebUI>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/NAME.xml</TemplateURL>
-    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/NAME.png</Icon>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/nextcloud.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/nextcloud.png</Icon>
 
     <!-- CONTAINER FLAGS -->
     <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
-    <PostArgs>POST_ARGS</PostArgs>
-
-    <!-- ADDITIONAL REQUIREMENTS -->
-    <Requires>ADDITIONAL_REQUIREMENTS</Requires>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="NAME" Target="CONTAINER_PATH" Default="DEFAULT" Mode="rw"
-        Description="DESCRIPTION" Type="Path" Display="always" Required="false" Mask="false">
-        HOST_PATH</Config>
+    <Config Name="Nextcloud Data" Target="/var/www/html/" Default="/mnt/user/appdata/nextcloud/html"
+        Mode="rw" Description="Main data directory for Nextcloud" Type="Path" Display="always"
+        Required="false" Mask="false">/mnt/user/appdata/nextcloud/html</Config>
+    <Config Name="Nextcloud Custom Apps" Target="/var/www/html/custom_apps"
+        Default="/mnt/user/appdata/nextcloud/custom_apps" Mode="rw"
+        Description="Custom apps directory for Nextcloud" Type="Path" Display="always"
+        Required="false" Mask="false">/mnt/user/appdata/nextcloud/custom_apps</Config>
+    <Config Name="Nextcloud Configuration" Target="/var/www/html/config"
+        Default="/mnt/user/appdata/nextcloud/config" Mode="rw"
+        Description="Configuration directory for Nextcloud" Type="Path" Display="always"
+        Required="false" Mask="false">/mnt/user/appdata/nextcloud/config</Config>
+    <Config Name="Nextcloud Files" Target="/var/www/html/data"
+        Default="/mnt/user/appdata/nextcloud/data" Mode="rw"
+        Description="User files directory for Nextcloud" Type="Path" Display="always"
+        Required="false" Mask="false">/mnt/user/appdata/nextcloud/data</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>
 
     <!-- PORT MAPPINGS -->
-    <Config Name="PORT" Target="80" Default="80" Mode="tcp" Description="DESCRIPTION" Type="Port"
-        Display="always" Required="true" Mask="false">80</Config>
+    <Config Name="Web UI Port" Target="80" Default="80" Mode="tcp"
+        Description="Web UI port for Nextcloud" Type="Port" Display="always" Required="true"
+        Mask="false">80</Config>
 
     <!-- ENVIRONMENT VARIABLES -->
-    <Config Name="VARIABLE" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
-        Type="Variable" Display="always" Required="true" Mask="false">VALUE</Config>
-
-    <!-- LABELS -->
-    <Config Name="NAME" Target="KEY" Default="DEFAULT" Mode="" Description="DESCRIPTION"
-        Type="Label" Display="always" Required="true" Mask="false">VALUE</Config>
-
-    <!-- DEVICE MAPPINGS -->
-    <Config Name="NAME" Target="VALUE" Default="" Mode="" Description="DESCRIPTION" Type="Device"
-        Display="always" Required="true" Mask="false">VALUE</Config>
+    <Config Name="POSTGRES_DB" Target="POSTGRES_DB" Default="nextcloud" Mode=""
+        Description="PostgreSQL database name" Type="Variable" Display="always" Required="false"
+        Mask="false">nextcloud</Config>
+    <Config Name="POSTGRES_USER" Target="POSTGRES_USER" Default="nextcloud" Mode=""
+        Description="PostgreSQL database user" Type="Variable" Display="always" Required="false"
+        Mask="false">nextcloud</Config>
+    <Config Name="POSTGRES_PASSWORD" Target="POSTGRES_PASSWORD" Default="password" Mode=""
+        Description="PostgreSQL database password" Type="Variable" Display="always" Required="false"
+        Mask="true">password</Config>
+    <Config Name="POSTGRES_HOST" Target="POSTGRES_HOST" Default="localhost" Mode=""
+        Description="PostgreSQL database host" Type="Variable" Display="always" Required="false"
+        Mask="false">localhost</Config>
+    <Config Name="NEXTCLOUD_TRUSTED_DOMAINS" Target="NEXTCLOUD_TRUSTED_DOMAINS" Default="localhost"
+        Mode="" Description="Nextcloud trusted domains" Type="Variable" Display="always"
+        Required="false" Mask="false">localhost</Config>
+    <Config Name="REDIS_HOST" Target="REDIS_HOST" Default="localhost" Mode=""
+        Description="Redis host" Type="Variable" Display="always" Required="false"
+        Mask="false">localhost</Config>
+    <Config Name="REDIS_HOST_PORT" Target="REDIS_HOST_PORT" Default="6379" Mode=""
+        Description="Redis host port" Type="Variable" Display="always" Required="false"
+        Mask="false">6379</Config>
+    <Config Name="REDIS_HOST_PASSWORD" Target="REDIS_HOST_PASSWORD" Default="password" Mode=""
+        Description="Redis host password" Type="Variable" Display="always" Required="false"
+        Mask="true">password</Config>
 </Container>

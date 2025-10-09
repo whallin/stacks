@@ -29,8 +29,8 @@
 
     <!-- MOUNTED PATHS -->
     <Config Name="NAME" Target="CONTAINER_PATH" Default="DEFAULT" Mode="rw"
-        Description="DESCRIPTION" Type="Path" Display="always" Required="false" Mask="false">
-        HOST_PATH</Config>
+        Description="DESCRIPTION" Type="Path" Display="always" Required="false"
+        Mask="false">HOST_PATH</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>
