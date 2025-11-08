@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>twitch-channel-points-miner</Name>
+    <Repository>rdavidoff/twitch-channel-points-miner-v2:latest</Repository>
+    <Registry>https://hub.docker.com/r/rdavidoff/twitch-channel-points-miner-v2</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>host</Network>
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/rdavydov/Twitch-Channel-Points-Miner-v2/issues</Support>
+    <Project>https://github.com/rdavydov/Twitch-Channel-Points-Miner-v2</Project>
+    <ReadMe>https://github.com/rdavydov/Twitch-Channel-Points-Miner-v2</ReadMe>
+    <Overview>A simple script that will watch a stream for you and earn the channel points.</Overview>
+    <Category>Tools: Other:</Category>
+    <WebUI>http://[IP]:[PORT:5000]/</WebUI>
+    <TemplateURL>
+        https://raw.githubusercontent.com/whallin/stacks/develop/unraid/twitch-channel-points.xml
+    </TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/twitch.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- ADDITIONAL REQUIREMENTS -->
+    <Requires>Twitch Channel Points Miner requires:&#xD;
+        - A Twitch account&#xD;
+        - Configuring the mapped run.py with your preferences</Requires>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Twitch Channel Points Miner Analytics" Target="/usr/src/app/analytics"
+        Default="/mnt/user/appdata/twitch-channel-points-miner/analytics" Mode="rw"
+        Description="Analytics storage for Twitch Channel Points Miner" Type="Path" Display="always"
+        Required="true" Mask="false">/mnt/user/appdata/twitch-channel-points-miner/analytics</Config>
+    <Config Name="Twitch Channel Points Miner Cookies" Target="/usr/src/app/cookies"
+        Default="/mnt/user/appdata/twitch-channel-points-miner/cookies" Mode="rw"
+        Description="Cookies storage for Twitch Channel Points Miner" Type="Path" Display="always"
+        Required="true" Mask="false">/mnt/user/appdata/twitch-channel-points-miner/cookies</Config>
+    <Config Name="Twitch Channel Points Miner Logs" Target="/usr/src/app/logs"
+        Default="/mnt/user/appdata/twitch-channel-points-miner/logs" Mode="rw"
+        Description="Logs storage for Twitch Channel Points Miner" Type="Path" Display="always"
+        Required="true" Mask="false">/mnt/user/appdata/twitch-channel-points-miner/logs</Config>
+    <Config Name="Twitch Channel Points Miner Logs" Target="/usr/src/app/run.py"
+        Default="/mnt/user/appdata/twitch-channel-points-miner/run.py" Mode="ro"
+        Description="Twitch Channel Points Miner script from their repository" Type="Path" Display="always"
+        Required="true" Mask="false">/mnt/user/appdata/twitch-channel-points-miner/run.py</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web Analytics Port" Target="5000" Default="5000" Mode="tcp"
+        Description="Web Analytics Port for Twitch Channel Points Miner" Type="Port"
+        Display="always" Required="true" Mask="false">5000</Config>
+</Container>
