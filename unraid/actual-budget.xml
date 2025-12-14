@@ -17,7 +17,7 @@
     <Overview>Actual Budget is a super fast and privacy-focused app for managing your finances.</Overview>
     <Category>Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:5006]/</WebUI>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/actual-budget.xml</TemplateURL>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/actual-budget.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/actual-budget.png</Icon>
 
     <!-- CONTAINER FLAGS -->

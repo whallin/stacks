@@ -20,7 +20,7 @@
     </Overview>
     <Category>Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:8000]/</WebUI>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/paperless-ngx.xml</TemplateURL>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/paperless-ngx.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/paperless-ngx.png</Icon>
 
     <!-- CONTAINER FLAGS -->

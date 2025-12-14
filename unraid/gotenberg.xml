@@ -16,7 +16,7 @@
     <ReadMe>https://gotenberg.dev/docs/getting-started/introduction</ReadMe>
     <Overview>A containerized API for seamless PDF conversion.</Overview>
     <Category>Tools:</Category>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/gotenberg.xml</TemplateURL>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/gotenberg.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/golang.png</Icon>
 
     <!-- CONTAINER FLAGS -->

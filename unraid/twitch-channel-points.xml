@@ -18,7 +18,7 @@
     <Category>Tools: Other:</Category>
     <WebUI>http://[IP]:[PORT:5000]/</WebUI>
     <TemplateURL>
-        https://raw.githubusercontent.com/whallin/stacks/develop/unraid/twitch-channel-points.xml
+        https://raw.githubusercontent.com/whallin/stacks/main/unraid/twitch-channel-points.xml
     </TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/twitch.png</Icon>
 

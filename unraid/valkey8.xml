@@ -19,7 +19,7 @@
         workloads.
     </Overview>
     <Category>Tools: Network:Management Network:Other</Category>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/valkey.xml</TemplateURL>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/valkey.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/valkey.png</Icon>
 
     <!-- CONTAINER FLAGS -->

@@ -17,7 +17,7 @@
     <Overview>Ghostfolio is an open source wealth management software built with web technology.</Overview>
     <Category>Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:3333]/</WebUI>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/ghostfolio.xml</TemplateURL>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/ghostfolio.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/ghostfolio.png</Icon>
 
     <!-- CONTAINER FLAGS -->

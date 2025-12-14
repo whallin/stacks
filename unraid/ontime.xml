@@ -20,7 +20,7 @@
     </Overview>
     <Category>Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:4001]/</WebUI>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/ontime.xml</TemplateURL>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/ontime.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/ontime.png</Icon>
 
     <!-- CONTAINER FLAGS -->

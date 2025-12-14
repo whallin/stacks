@@ -20,7 +20,7 @@
     </Overview>
     <Category>Backup: Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:80]/</WebUI>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/nextcloud.xml</TemplateURL>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/nextcloud.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/nextcloud.png</Icon>
 
     <!-- CONTAINER FLAGS -->

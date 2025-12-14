@@ -19,7 +19,7 @@
         edge.
     </Overview>
     <Category>Network:Web Network:Proxy</Category>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/cloudflared.xml</TemplateURL>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/cloudflared.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/cloudflare.png</Icon>
 
     <!-- CONTAINER FLAGS -->

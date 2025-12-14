@@ -18,7 +18,7 @@
         The PostgreSQL object-relational database system provides reliability and data integrity.
     </Overview>
     <Category>Tools: Network:Management Network:Other</Category>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/postgresql18.xml</TemplateURL>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/postgresql18.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/postgresql.png</Icon>
 
     <!-- CONTAINER FLAGS -->

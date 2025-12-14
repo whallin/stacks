@@ -17,7 +17,7 @@
     <Overview>OVERVIEW</Overview>
     <Category />
     <WebUI>http://[IP]:[PORT:80]/</WebUI>
-    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/develop/unraid/NAME.xml</TemplateURL>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/NAME.xml</TemplateURL>
     <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/NAME.png</Icon>
 
     <!-- CONTAINER FLAGS -->
