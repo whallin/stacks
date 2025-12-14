@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>copyparty</Name>
+    <Repository>ghcr.io/9001/copyparty-dj:latest</Repository>
+    <Registry>https://github.com/9001/copyparty/pkgs/container/copyparty-dj</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>host</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/9001/copyparty/issues</Support>
+    <Project>https://github.com/9001/copyparty</Project>
+    <ReadMe>https://github.com/9001/copyparty#readme</ReadMe>
+    <Overview>
+        Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP,
+        zeroconf, media indexer, thumbnails++ all in one file, no deps
+    </Overview>
+    <Category>Backup: Productivity: Tools:</Category>
+    <WebUI>http://[IP]:[PORT:3923]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/copyparty.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/copyparty.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="copyparty Data" Target="/w" Default="/mnt/user/appdata/copyparty/data" Mode="rw"
+        Description="Main data directory for copyparty" Type="Path" Display="always"
+        Required="true" Mask="false">/mnt/user/appdata/copyparty/data</Config>
+    <Config Name="copyparty Config" Target="/cfg" Default="/mnt/user/appdata/copyparty/config"
+        Mode="rw" Description="Configuration directory for copyparty" Type="Path" Display="always"
+        Required="false" Mask="false">/mnt/user/appdata/copyparty/config</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web UI Port" Target="3923" Default="3923" Mode="tcp"
+        Description="Web UI Port for copyparty" Type="Port" Display="always" Required="true"
+        Mask="false">3923</Config>
+</Container>

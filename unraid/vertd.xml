@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>vertd</Name>
+    <Repository>ghcr.io/vert-sh/vertd:latest</Repository>
+    <Registry>https://github.com/vert-sh/vertd/pkgs/container/vertd</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>host</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/VERT-sh/vertd/issues</Support>
+    <Project>https://github.com/VERT-sh/vertd</Project>
+    <ReadMe>https://github.com/VERT-sh/vertd#readme</ReadMe>
+    <Overview>VERT's solution to crappy video conversion services.</Overview>
+    <Category>Tools:</Category>
+    <WebUI>http://[IP]:[PORT:24153]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/vertd.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/vert.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="API Port" Target="24153" Default="24153" Mode="tcp"
+        Description="API Port for vertd" Type="Port" Display="always" Required="true"
+        Mask="false">24153</Config>
+
+    <!-- DEVICE MAPPINGS -->
+    <Config Name="Hardware Acceleration" Target="/dev/dri" Default="" Mode=""
+        Description="Hardware acceleration using Intel and AMD GPUs" Type="Device" Display="always"
+        Required="false" Mask="false">/dev/dri</Config>
+</Container>

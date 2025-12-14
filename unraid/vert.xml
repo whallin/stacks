@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>vert</Name>
+    <Repository>ghcr.io/vert-sh/vert:latest</Repository>
+    <Registry>https://github.com/VERT-sh/VERT/pkgs/container/vert</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>host</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/VERT-sh/VERT/issues</Support>
+    <Project>https://github.com/VERT-sh/VERT</Project>
+    <ReadMe>https://github.com/VERT-sh/VERT#readme</ReadMe>
+    <Overview>
+        VERT is a file conversion utility that uses WebAssembly to convert files on your
+        device instead of a cloud.
+    </Overview>
+    <Category>Productivity: Tools:</Category>
+    <WebUI>http://[IP]:[PORT:80]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/vert.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/vert.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web UI Port" Target="80" Default="80" Mode="tcp"
+        Description="Web UI Port for VERT" Type="Port" Display="always" Required="true"
+        Mask="false">80</Config>
+</Container>
