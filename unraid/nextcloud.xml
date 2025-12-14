@@ -13,7 +13,7 @@
     <!-- TEMPLATE INFORMATION -->
     <Support>https://github.com/nextcloud/docker/issues</Support>
     <Project>https://github.com/nextcloud/docker</Project>
-    <ReadMe>https://github.com/nextcloud/docker</ReadMe>
+    <ReadMe>https://github.com/nextcloud/docker#readme</ReadMe>
     <Overview>
         A safe home for all your data. Access &amp;amp; share your files, calendars, contacts, mail
         &amp;amp; more from any device, on your terms.

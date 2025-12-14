@@ -13,7 +13,7 @@
     <!-- TEMPLATE INFORMATION -->
     <Support>https://github.com/ghostfolio/ghostfolio/issues</Support>
     <Project>https://github.com/ghostfolio/ghostfolio</Project>
-    <ReadMe>https://github.com/ghostfolio/ghostfolio</ReadMe>
+    <ReadMe>https://github.com/ghostfolio/ghostfolio#readme</ReadMe>
     <Overview>Ghostfolio is an open source wealth management software built with web technology.</Overview>
     <Category>Productivity: Tools:</Category>
     <WebUI>http://[IP]:[PORT:3333]/</WebUI>

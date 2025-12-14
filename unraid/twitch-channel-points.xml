@@ -13,7 +13,7 @@
     <!-- TEMPLATE INFORMATION -->
     <Support>https://github.com/rdavydov/Twitch-Channel-Points-Miner-v2/issues</Support>
     <Project>https://github.com/rdavydov/Twitch-Channel-Points-Miner-v2</Project>
-    <ReadMe>https://github.com/rdavydov/Twitch-Channel-Points-Miner-v2</ReadMe>
+    <ReadMe>https://github.com/rdavydov/Twitch-Channel-Points-Miner-v2#readme</ReadMe>
     <Overview>A simple script that will watch a stream for you and earn the channel points.</Overview>
     <Category>Tools: Other:</Category>
     <WebUI>http://[IP]:[PORT:5000]/</WebUI>
