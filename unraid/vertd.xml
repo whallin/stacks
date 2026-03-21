@@ -33,6 +33,10 @@
         Description="API Port for vertd" Type="Port" Display="always" Required="true"
         Mask="false">24153</Config>
 
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="ADMIN_PASSWORD" Target="ADMIN_PASSWORD" Default="supersecret" Mode="" Description="vertd Admin password" Type="Variable" Display="always" Required="false" Mask="true">supersecret</Config>
+    <Config Name="PUBLIC_URL" Target="PUBLIC_URL" Default="http://localhost:24153" Mode="" Description="vertd Public URL" Type="Variable" Display="always" Required="false" Mask="false">http://localhost:24153</Config>
+
     <!-- DEVICE MAPPINGS -->
     <Config Name="Hardware Acceleration" Target="/dev/dri" Default="" Mode=""
         Description="Hardware acceleration using Intel and AMD GPUs" Type="Device" Display="always"

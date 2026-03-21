@@ -38,7 +38,4 @@
     <Config Name="Web UI Port" Target="4001" Default="4001" Mode="tcp"
         Description="Web UI Port for Ontime" Type="Port" Display="always" Required="true"
         Mask="false">4001</Config>
-    <Config Name="OSC Input Port" Target="8888" Default="8888" Mode="udp"
-        Description="OSC Input Port for Ontime" Type="Port" Display="always" Required="false"
-        Mask="false">8888</Config>
 </Container>

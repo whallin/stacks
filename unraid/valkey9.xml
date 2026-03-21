@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <Container version="2">
     <!-- IMAGE -->
-    <Name>valkey8</Name>
-    <Repository>ghcr.io/valkey-io/valkey:8</Repository>
+    <Name>valkey9</Name>
+    <Repository>ghcr.io/valkey-io/valkey:9-alpine</Repository>
     <Registry>https://github.com/valkey-io/valkey-container/pkgs/container/valkey</Registry>
 
     <!-- CONTAINER SETTINGS -->
@@ -27,9 +27,9 @@
     <PostArgs>valkey-server --loglevel notice --save 300 1 --appendonly yes</PostArgs>
 
     <!-- MOUNTED PATHS -->
-    <Config Name="Valkey Data" Target="/data" Default="/mnt/user/appdata/valkey8" Mode="rw"
+    <Config Name="Valkey Data" Target="/data" Default="/mnt/user/appdata/valkey9" Mode="rw"
         Description="Data directory for Valkey" Type="Path" Display="always" Required="true"
-        Mask="false">/mnt/user/appdata/valkey8</Config>
+        Mask="false">/mnt/user/appdata/valkey9</Config>
     <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>

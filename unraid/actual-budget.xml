@@ -31,6 +31,21 @@
         Description="Container's local time from host" Type="Path" Display="advanced"
         Required="false" Mask="false">/etc/localtime</Config>
 
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="ACTUAL_OPENID_DISCOVERY_URL" Target="ACTUAL_OPENID_DISCOVERY_URL"
+        Default="https://your_discovery_url/.well-known/openid-configuration" Mode=""
+        Description="OpenID Discovery URL" Type="Variable" Display="always" Required="false"
+        Mask="false">https://your_discovery_url/.well-known/openid-configuration</Config>
+    <Config Name="ACTUAL_OPENID_CLIENT_ID" Target="ACTUAL_OPENID_CLIENT_ID" Default="your_client_id"
+        Mode="" Description="OpenID Client ID" Type="Variable" Display="always" Required="false"
+        Mask="false">your_client_id</Config>
+    <Config Name="ACTUAL_OPENID_CLIENT_SECRET" Target="ACTUAL_OPENID_CLIENT_SECRET"
+        Default="your_client_secret" Mode="" Description="OpenID Client Secret" Type="Variable"
+        Display="always" Required="false" Mask="true">your_client_secret</Config>
+    <Config Name="ACTUAL_OPENID_SERVER_HOSTNAME" Target="ACTUAL_OPENID_SERVER_HOSTNAME"
+        Default="http://localhost:5006" Mode="" Description="OpenID Server Hostname" Type="Variable"
+        Display="always" Required="false" Mask="false">http://localhost:5006</Config>
+
     <!-- PORT MAPPINGS -->
     <Config Name="Web UI Port" Target="5006" Default="5006" Mode="tcp"
         Description="Web UI Port for Actual Budget" Type="Port" Display="always" Required="true"
