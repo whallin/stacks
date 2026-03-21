@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>wealthfolio</Name>
+    <Repository>ghcr.io/afadil/wealthfolio:latest</Repository>
+    <Registry>https://github.com/afadil/wealthfolio/pkgs/container/wealthfolio</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>host</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/afadil/wealthfolio/issues</Support>
+    <Project>https://github.com/afadil/wealthfolio</Project>
+    <ReadMe>https://wealthfolio.app/docs/introduction/</ReadMe>
+    <Overview>Wealthfolio App is a Beautiful and Boring Investment Tracker, with Local Data Storage.</Overview>
+    <Category>Productivity: Tools:</Category>
+    <WebUI>http://[IP]:[PORT:8088]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/wealthfolio.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/wealthfolio.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--init --no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Wealthfolio Data" Target="/data" Default="/mnt/user/appdata/wealthfolio" Mode="rw"
+        Description="Data directory for Wealthfolio" Type="Path" Display="always" Required="true"
+        Mask="false">/mnt/user/appdata/wealthfolio</Config>
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web UI Port" Target="8088" Default="8088" Mode="tcp"
+        Description="Web UI Port for Wealthfolio" Type="Port" Display="always" Required="true"
+        Mask="false">8088</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="WF_LISTEN_ADDR" Target="WF_LISTEN_ADDR" Default="0.0.0.0:8088" Mode=""
+        Description="Server listen address and port" Type="Variable" Display="advanced"
+        Required="true" Mask="false">0.0.0.0:8088</Config>
+    <Config Name="WF_DB_PATH" Target="WF_DB_PATH" Default="/data/wealthfolio.db" Mode=""
+        Description="Path to the database file" Type="Variable" Display="advanced" Required="true"
+        Mask="false">/data/wealthfolio.db</Config>
+    <Config Name="WF_CORS_ALLOW_ORIGINS" Target="WF_CORS_ALLOW_ORIGINS" Default="*" Mode=""
+        Description="CORS allowed origins" Type="Variable" Display="advanced" Required="true"
+        Mask="false">*</Config>
+    <Config Name="WF_REQUEST_TIMEOUT_MS" Target="WF_REQUEST_TIMEOUT_MS" Default="30000" Mode=""
+        Description="Request timeout in milliseconds" Type="Variable" Display="advanced"
+        Required="true" Mask="false">30000</Config>
+    <Config Name="WF_STATIC_DIR" Target="WF_STATIC_DIR" Default="dist" Mode=""
+        Description="Static files directory" Type="Variable" Display="advanced" Required="true"
+        Mask="false">dist</Config>
+    <Config Name="WF_SECRET_KEY" Target="WF_SECRET_KEY" Default="replace_with_generated_secret"
+        Mode="" Description="Secret key for security" Type="Variable" Display="always"
+        Required="true" Mask="true">replace_with_generated_secret</Config>
+    <Config Name="WF_AUTH_PASSWORD_HASH" Target="WF_AUTH_PASSWORD_HASH"
+        Default="replace_with_generated_secret" Mode=""
+        Description="Argon2id password hash for authentication" Type="Variable" Display="always"
+        Required="true" Mask="true">replace_with_generated_secret</Config>
+</Container>
