@@ -63,7 +63,7 @@
     <Config Name="GOOGLE_CLIENT_ID" Target="GOOGLE_CLIENT_ID" Default="google_client_id" Mode=""
         Description="Google Client ID" Type="Variable" Display="always" Required="true"
         Mask="false">google_client_id</Config>
-    <Config Name="GOOGLE_CLIENT_SECRET_KEY" Target="GOOGLE_CLIENT_SECRET_KEY"
+    <Config Name="GOOGLE_CLIENT_SECRET" Target="GOOGLE_CLIENT_SECRET"
         Default="google_client_secret_key" Mode="" Description="Google Client Secret Key"
         Type="Variable" Display="always" Required="true" Mask="true">google_client_secret_key</Config>
     <Config Name="BLOCK_PRIVATE_RESOLUTION" Target="BLOCK_PRIVATE_RESOLUTION" Default="false|true"
