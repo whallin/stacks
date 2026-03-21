@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <!-- IMAGE -->
+    <Name>keeper</Name>
+    <Repository>ghcr.io/ridafkih/keeper-services:latest</Repository>
+    <Registry>https://github.com/ridafkih/keeper.sh/pkgs/container/keeper-services</Registry>
+
+    <!-- CONTAINER SETTINGS -->
+    <Network>host</Network> <!-- host or bridge -->
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+
+    <!-- TEMPLATE INFORMATION -->
+    <Support>https://github.com/ridafkih/keeper.sh/issues</Support>
+    <Project>https://github.com/ridafkih/keeper.sh</Project>
+    <ReadMe>https://github.com/ridafkih/keeper.sh#readme</ReadMe>
+    <Overview>
+        Keeper is a simple &amp;amp; open-source calendar syncing tool. It allows you to pull
+        events from remotely hosted iCal or ICS links, and push them to one or many calendars so the
+        time slots can align across them all.
+    </Overview>
+    <Category>Productivity: Tools: Other:</Category>
+    <WebUI>http://[IP]:[PORT:3000]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/whallin/stacks/main/unraid/keeper.xml</TemplateURL>
+    <Icon>https://cdn.jsdelivr.net/gh/selfhst/icons/png/keeper.png</Icon>
+
+    <!-- CONTAINER FLAGS -->
+    <ExtraParams>--no-healthcheck --restart=unless-stopped</ExtraParams>
+
+    <!-- MOUNTED PATHS -->
+    <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro"
+        Description="Container's local time from host" Type="Path" Display="advanced"
+        Required="false" Mask="false">/etc/localtime</Config>
+
+    <!-- PORT MAPPINGS -->
+    <Config Name="Web UI Port" Target="3000" Default="3000" Mode="tcp"
+        Description="Web UI port for Keeper" Type="Port"
+        Display="always" Required="true" Mask="false">3000</Config>
+    <Config Name="API Port" Target="3001" Default="3001" Mode="tcp"
+        Description="API port for Keeper" Type="Port"
+        Display="always" Required="true" Mask="false">3001</Config>
+
+    <!-- ENVIRONMENT VARIABLES -->
+    <Config Name="DATABASE_URL" Target="DATABASE_URL"
+        Default="postgres://user:pass@postgres:5432/keeper" Mode=""
+        Description="PostgreSQL connection URL" Type="Variable" Display="always" Required="true"
+        Mask="false">postgres://user:pass@postgres:5432/keeper</Config>
+    <Config Name="REDIS_URL" Target="REDIS_URL" Default="redis://redis:6379" Mode=""
+        Description="Redis connection URL" Type="Variable" Display="always" Required="true"
+        Mask="false">redis://redis:6379</Config>
+    <Config Name="WORKER_JOB_QUEUE_ENABLED" Target="WORKER_JOB_QUEUE_ENABLED" Default="true|false"
+        Mode="" Description="Enable worker job queue" Type="Variable" Display="always"
+        Required="true" Mask="false"></Config>
+    <Config Name="BETTER_AUTH_URL" Target="BETTER_AUTH_URL" Default="http://localhost:3000" Mode=""
+        Description="URL for authentication redirects" Type="Variable" Display="always"
+        Required="true" Mask="false">http://localhost:3000</Config>
+    <Config Name="BETTER_AUTH_SECRET" Target="BETTER_AUTH_SECRET" Default="session_secret" Mode=""
+        Description="Secret key for session signing" Type="Variable" Display="always"
+        Required="true" Mask="true">session_secret</Config>
+    <Config Name="ENCRYPTION_KEY" Target="ENCRYPTION_KEY" Default="encryption_key" Mode=""
+        Description="Encryption key for CalDAV credentials" Type="Variable" Display="always"
+        Required="true" Mask="true">encryption_key</Config>
+    <Config Name="GOOGLE_CLIENT_ID" Target="GOOGLE_CLIENT_ID" Default="google_client_id" Mode=""
+        Description="Google Client ID" Type="Variable" Display="always" Required="true"
+        Mask="false">google_client_id</Config>
+    <Config Name="GOOGLE_CLIENT_SECRET_KEY" Target="GOOGLE_CLIENT_SECRET_KEY"
+        Default="google_client_secret_key" Mode="" Description="Google Client Secret Key"
+        Type="Variable" Display="always" Required="true" Mask="true">google_client_secret_key</Config>
+    <Config Name="BLOCK_PRIVATE_RESOLUTION" Target="BLOCK_PRIVATE_RESOLUTION" Default="false|true"
+        Mode="" Description="Block outbound private resolution" Type="Variable" Display="always"
+        Required="false" Mask="false"></Config>
+    <Config Name="PRIVATE_RESOLUTION_WHITELIST" Target="PRIVATE_RESOLUTION_WHITELIST"
+        Default="192.168.1.50" Mode="" Description="Private resolution whitelist" Type="Variable"
+        Display="always" Required="false" Mask="false">192.168.1.50</Config>
+    <Config Name="TRUSTED_ORIGINS" Target="TRUSTED_ORIGINS" Default="http://keeper.local" Mode=""
+        Description="Trusted origins" Type="Variable" Display="always" Required="false"
+        Mask="false">http://keeper.local</Config>
+</Container>
