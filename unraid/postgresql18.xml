@@ -2,7 +2,7 @@
 <Container version="2">
     <!-- IMAGE -->
     <Name>postgresql18</Name>
-    <Repository>postgres:18</Repository>
+    <Repository>postgres:18-alpine</Repository>
     <Registry>https://hub.docker.com/_/postgres</Registry>
 
     <!-- CONTAINER SETTINGS -->
